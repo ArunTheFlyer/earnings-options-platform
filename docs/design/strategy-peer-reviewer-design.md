@@ -17,7 +17,7 @@ Per the Reviewer Evidence Model (decision-layer.md §8):
 - Independently reconstruct the reasoning using the analyst structured outputs, before weighing the Strategist's version of it.
 - Compare that reconstruction with the Strategist's structured output.
 - Identify omissions, contradictions, unsupported conclusions, and logical errors.
-- Verify the Strategist's contract conformance: outcome validity (Strategy / NO TRADE / INSUFFICIENT EVIDENCE), evidence traceability of every conclusion, labeled assumptions, and constraint adherence (approved strategies only, defined-risk only).
+- Verify the Strategist's contract conformance: outcome validity (Strategy / NO TRADE / INSUFFICIENT EVIDENCE), evidence traceability of every conclusion, labeled assumptions, and — when the outcome is Strategy — constraint adherence (approved strategies only, defined-risk only). Non-trade outcomes contain no strategy; the absence of one is not a defect.
 - Verify that contradictions in the evidence were surfaced by the Strategist, not silently resolved (per the [analyst handoff contract](../contracts/analyst-handoff-contract.md)).
 - Record the review as a Structured Decision Contract with its own Evidence References.
 

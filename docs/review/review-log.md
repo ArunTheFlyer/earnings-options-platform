@@ -233,3 +233,32 @@ None blocking. Minor notes (folded into this session's bookkeeping): workflow.md
 ### Next Actions
 
 - Submit agents/strategy-peer-reviewer.md for full 12-dimension checklist review against the specification.
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); fixes by implementing engineer
+Target File: agents/strategy-peer-reviewer.md (commit 403e13d; full 12-dimension checklist, spec as canonical reference)
+Status: Completed — one correctness finding (P1) resolved same day; conditional pass pending reviewer confirmation
+
+### Findings
+
+Correctness: P1 — step 3 conformance checklist unconditionally required an approved defined-risk strategy, which would misfire (wrongly REJECT) every legitimate NO TRADE / INSUFFICIENT EVIDENCE artifact.
+Minor: P2 — consumer not named in Output; P3 — Confidence definition blended Evidence Confidence semantics into a Decision Confidence field.
+Dispositions: both flagged drafting choices accepted (repo paths; inline defect definitions verified drift-free against spec §8).
+Observation: reviewer independence is behavioral, not structural — staged input delivery recorded as OAQ-2 for Phase 4.
+
+### Decisions Made
+
+- P1 fixed in the prompt (strategy-conformance clause conditioned on outcome = Strategy; absence of strategy in non-trade outcomes explicitly not a defect) and mirrored into spec section 3.
+- P2 fixed: Output section names the Portfolio Manager as consumer on approval, written record otherwise.
+- P3 fixed: Confidence defined per the decision output contract (Decision Confidence).
+- OAQ-2 created for structural independence enforcement (Phase 4).
+
+### Open Questions
+
+- OAQ-2 (new, deferred).
+
+### Next Actions
+
+- Reviewer confirmation of P1 diff; on confirmation the prompt passes and review-status.md is updated.

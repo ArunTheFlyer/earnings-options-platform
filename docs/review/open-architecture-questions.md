@@ -25,3 +25,15 @@ This explicitly includes:
 - The Analyst Ownership Matrix in [analyst-handoff-contract.md](../contracts/analyst-handoff-contract.md) lists no owner for this capability until resolved.
 
 **Referenced by:** Technical Analyst design specification (Open Design Question 2); Options Market Analyst design specification (Open Design Questions 2 and 3).
+
+---
+
+## OAQ-2: Structural enforcement of reviewer independence (Phase 4)
+
+**Status:** Open — deferred to orchestration design (Phase 4)
+
+**Question:** Should orchestration deliver the Strategy Peer Reviewer's inputs in stages — analyst structured contracts first, the Strategist's artifact only after the independent reconstruction is emitted — so that reconstruction-first independence is structural rather than behavioral?
+
+**Context:** The reviewer prompt enforces reconstruction-before-comparison by instruction only; all inputs share one context, so the model *can* see the Strategist's artifact before reconstructing. Raised during the 2026-07-17 prompt review of agents/strategy-peer-reviewer.md. No action until orchestration (Phase 4) is designed.
+
+**Referenced by:** agents/strategy-peer-reviewer.md (Thinking Process); Strategy Peer Reviewer design specification (§10).
