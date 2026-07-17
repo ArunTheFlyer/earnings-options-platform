@@ -441,3 +441,21 @@ Accepted drafting choices: Observation Dispositions as structured field; full de
 ### Next Actions
 
 - Reviewer diff confirmation → both spec rows check as passed. TEM prompt authoring unblocked on pass; PM prompt remains blocked on policy/.
+
+## Review Session (addendum) + Authoring
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); authoring by implementing engineer
+Target Files: PM/TEM design specs (PASSED, commit 2a6bb48 confirmed); agents/trade-execution-manager.md (authored)
+Status: Both specs PASSED; TEM prompt submitted for review. Phase 1 design complete — all seven agents have passed design specifications.
+
+### Decisions Made
+
+- Dashboard: PM and TEM spec rows checked as PASSED 2026-07-17.
+- TEM prompt authored against its passed spec, honoring both reviewer advance notes: order-plan field conditional on order-placing decisions (P1 pattern — "HALT artifacts contain no order plan; that is correct, not a defect"), and HALT's feasibility-only/terminal/portfolio-record semantics placed in the Decisions and Output instructions, with the record-not-merits statement required in Decision Rationale.
+- PM prompt remains blocked on policy/ (PM spec D1). Critical path per reviewer: strategies/ and policy/ business content.
+
+### Next Actions
+
+- Full 12-dimension review of agents/trade-execution-manager.md.
+- Owner: strategies/ + policy/ authoring timing (Phase 3).
