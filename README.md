@@ -14,9 +14,54 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 4. Confirm the earnings date when echoed back; supply data files in `agent-data-source/` if asked.
 5. The run ends with a verdict: a recommended trade that survived independent AI peer review (with strikes, expirations, cost, and exit plan) — or a reasoned "no trade."
 
-Full walkthrough: **[docs/user-guide.md](docs/user-guide.md)** · Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-examples.md)
+Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-examples.md)
 
 > **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
+
+## What a Run Does
+
+One run takes one ticker through five AI agents, in order:
+
+1. **Market Regime Analyst** — classifies the current market environment (from a fixed taxonomy).
+2. **Technical Analyst** — reads the stock's trend, key levels, and price structure into earnings.
+3. **Options Market Analyst** — reads the options market: expected move, IV, liquidity.
+4. **Earnings Options Strategist** — recommends ONE approved strategy, or NO TRADE, or INSUFFICIENT EVIDENCE.
+5. **Strategy Peer Reviewer** — independently challenges the recommendation before you ever see it as actionable: APPROVED / APPROVED WITH OBSERVATIONS / REJECTED.
+
+Then **you** decide: trade or not, and how big. The pipeline never touches your money.
+
+**Starting a run:** two equivalent options — natural language (Claude Code auto-loads `CLAUDE.md`, which teaches the full orchestration procedure) or the packaged skill (`/run-pipeline <TICKER>`); both follow the same governed procedure (`docs/design/orchestration-design.md`). **The orchestrator always echoes the earnings date and session back to you and waits for confirmation** before running anything — check it; a wrong date corrupts the whole run.
+
+**During the run:** market data is fetched automatically from free public sources (Yahoo Finance). If something isn't available or good enough, the run **pauses and tells you exactly what's missing** — drop the requested file into `agent-data-source/` and say so; the run resumes. Nothing is ever guessed. The agents hand structured artifacts down the chain; the reviewer independently re-derives the reasoning before it's allowed to see the strategist's answer.
+
+**Reading the result:**
+
+- **APPROVED / APPROVED WITH OBSERVATIONS** — a fully specified trade (strategy, strikes, expirations, per-unit cost and max loss, entry conditions, exit plan) that survived adversarial review. Observations are concerns worth your attention that weren't severe enough to reject.
+- **REJECTED** — the recommendation didn't survive scrutiny; the defect categories tell you why.
+- **NO TRADE / INSUFFICIENT EVIDENCE** — the strategist declined to recommend; the reviewer audited that reasoning too. This is the system working, not failing.
+
+## Your Decision (the Human Step)
+
+If a trade was approved: decide **whether** to take it and **how many units**, against your own account and risk tolerance. The strategist's artifact gives you the per-unit cost and maximum loss — the arithmetic is `units × max loss per unit` against whatever you're willing to risk. Tell the orchestrator your decision; it's recorded in the run record.
+
+Execution (placing orders with your broker) is also yours — manually, or with the Trade Execution Manager agent's order plan as a checklist. If you take the trade, the strategy's exit plan is the plan; follow it.
+
+Every run writes its full record to `runs/<date>-<ticker>/` — data snapshots, every agent's artifact, the reviewer's verdict, and your decision. **This folder is gitignored: your trading record stays on your machine** and is never pushed to GitHub.
+
+## Customizing (Advanced)
+
+- **Strategies:** the pipeline only recommends strategies defined in `strategies/` (max five, defined-risk only). Add your own from `strategies/strategy-template.md` — but note the governance rule: a strategy definition should be reviewed before you trust runs against it.
+- **Regime taxonomy:** the market classifications live in `docs/contracts/regime-taxonomy.md`.
+- **How it all works:** [docs/architecture.md](docs/architecture.md) (why), [docs/workflow.md](docs/workflow.md) (the pipeline), `docs/design/` (each agent's specification), `docs/review/` (how every piece was reviewed and decided).
+
+## Troubleshooting
+
+| Symptom | Meaning |
+|---|---|
+| Run ends with INSUFFICIENT EVIDENCE | Upstream data couldn't support a conclusion — check the Missing Evidence field; supply better data and rerun if you can. |
+| Run pauses asking for data | Yahoo couldn't provide something; the message names the exact file to drop in `agent-data-source/`. |
+| Reviewer REJECTED a proposal | Working as designed — read the defect categories before considering a rerun. |
+| Everything is NO TRADE | Also working as designed. The pipeline is a filter; most earnings events don't deserve a trade. |
 
 ## Built-In vs. Add-On Capabilities
 
@@ -73,7 +118,7 @@ Each stage consumes the outputs of the stages before it. No stage skips ahead, a
 ├── ROADMAP.md            # Phase/milestone status
 ├── agents/               # Agent prompt definitions (one file per agent)
 ├── docs/
-│   ├── architecture.md, workflow.md, design-principles.md, glossary.md, user-guide.md
+│   ├── architecture.md, workflow.md, design-principles.md, glossary.md
 │   ├── contracts/        # Output/handoff/decision contracts, regime taxonomy
 │   ├── design/           # Agent design specifications + orchestration design
 │   └── review/           # Review methodology, dashboard, log, ADRs
