@@ -1,5 +1,13 @@
 # Project Roadmap
 
+**Current Phase:** Phase 1 — Agent Design Review
+
+**Current Target:** agents/earnings-options-strategist.md
+
+**Next Milestone:** Earnings Options Strategist Reviewed
+
+---
+
 ## Phase 0 — Repository Foundation
 Status: ✅ Complete
 

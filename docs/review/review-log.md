@@ -28,3 +28,24 @@ The engineering journal for review sessions. Every review session appends one en
 ---
 
 <!-- Append review entries below this line, in chronological order. -->
+
+## Review Session
+
+Date: 2026-07-16
+Reviewer:
+Target File: agents/earnings-options-strategist.md
+Status: In Progress
+
+### Findings
+
+Critical
+
+Recommended
+
+Optional
+
+### Decisions
+
+### Open Questions
+
+### Next Actions
