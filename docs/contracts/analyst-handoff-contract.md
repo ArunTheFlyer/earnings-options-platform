@@ -26,9 +26,11 @@ When a consumer receives multiple analyst outputs, the following conflict-resolu
 
 The canonical map of which analyst owns which capability, and who consumes it. Only capabilities already defined in the current architecture are listed.
 
-| Capability | Owning Analyst | Consumed By |
+**Consumed By** lists *direct consumption only* — agents that read the artifact as an input. Later stages (Portfolio Manager, Trade Execution Manager) do not consume analyst artifacts directly; they reach analyst evidence exclusively through the Evidence References chain of the decision artifacts they consume (see the [decision output contract](decision-output-contract.md), §4). That is *chain reachability*, not consumption, and it is deliberately excluded from this matrix.
+
+| Capability | Owning Analyst | Consumed By (direct) |
 |---|---|---|
-| Market regime (environment classification, environment risks) | Market Regime Analyst | Technical Analyst (context), Options Market Analyst (context), Earnings Options Strategist, Strategy Peer Reviewer, Portfolio Manager, Trade Execution Manager |
+| Market regime (environment classification, environment risks) | Market Regime Analyst | Technical Analyst (context), Options Market Analyst (context), Earnings Options Strategist, Strategy Peer Reviewer |
 | Technical state (trend, key levels, patterns, current price structure into earnings) | Technical Analyst | Options Market Analyst (price-level context), Earnings Options Strategist, Strategy Peer Reviewer |
 | Options environment (implied volatility, expected move, liquidity, flow, risk characteristics) | Options Market Analyst | Earnings Options Strategist, Strategy Peer Reviewer |
 

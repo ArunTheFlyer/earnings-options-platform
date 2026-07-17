@@ -88,11 +88,11 @@ A rejection or "no trade" conclusion at any stage ends the pipeline for that can
 
 **Purpose:** Independently challenge the proposal before it can reach capital — checking that the strategy actually follows from the evidence, that assumptions are stated, and that risks are honestly represented.
 
-**Inputs:** The strategist's proposal plus all upstream assessments it was built on.
+**Inputs:** The strategist's structured decision contract plus all upstream analyst structured contracts, consumed independently (per ADR-003). Narrative artifacts are never review inputs.
 
-**Outputs:** A review verdict — approval (the proposal becomes an approved strategy), or rejection/return with the specific objections. Objections must cite evidence, not preference.
+**Outputs:** A review verdict — APPROVED or APPROVED WITH OBSERVATIONS (the proposal becomes an approved strategy), or REJECTED with one or more defect categories. Objections must cite evidence, not preference. There is no return-for-revision path.
 
-**Consumer:** Portfolio Manager (on approval); Earnings Options Strategist (on return); a rejection ends the pipeline.
+**Consumer:** Portfolio Manager (on approval); a rejection ends the pipeline for this candidate.
 
 ---
 
@@ -100,7 +100,7 @@ A rejection or "no trade" conclusion at any stage ends the pipeline for that can
 
 **Purpose:** Decide whether the approved strategy belongs in the portfolio — the final authority over capital.
 
-**Inputs:** The approved strategy with its full evidence trail; current portfolio state (positions, exposure, available risk budget).
+**Inputs:** The approved strategist decision artifact and the peer-review decision artifact (analyst evidence is reached through their Evidence References chains, not consumed directly); current portfolio state (positions, exposure, available risk budget) as a declared external state input, recorded as a snapshot per the decision output contract.
 
 **Outputs:** An accept/decline decision. On accept: the position size and any portfolio-level constraints the trade must respect. On decline: the reason, recorded.
 
@@ -112,7 +112,7 @@ A rejection or "no trade" conclusion at any stage ends the pipeline for that can
 
 **Purpose:** Carry out the accepted trade and manage it through its lifecycle. Execution only — this stage never revisits whether the trade should exist.
 
-**Inputs:** The accepted strategy with its approved size and constraints.
+**Inputs:** The approved portfolio decision artifact (the accepted strategy with its approved size and constraints); upstream evidence is reached through its Evidence References chain, not consumed directly.
 
 **Outputs:** Order plan and placement, fills, and ongoing lifecycle management (monitoring, adjustment, and exit per the strategy's defined plan), plus a record of outcomes.
 

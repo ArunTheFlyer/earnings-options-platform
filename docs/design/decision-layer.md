@@ -67,7 +67,7 @@ Trade Execution Manager
 | Agent | Authority | Cannot Decide |
 |---|---|---|
 | Earnings Options Strategist | What to propose: one approved strategy, NO TRADE, or INSUFFICIENT EVIDENCE | Whether its proposal is approved; position size; whether capital is committed; how execution happens |
-| Strategy Peer Reviewer | Whether a proposal advances: approve, or reject/return with objections | What to propose; it cannot originate, modify, or substitute a strategy, or commit capital |
+| Strategy Peer Reviewer | Whether a proposal advances: APPROVED, APPROVED WITH OBSERVATIONS, or REJECTED (with defect categories) | What to propose; it cannot originate, modify, substitute, or return a strategy for revision, or commit capital |
 | Portfolio Manager | Whether an approved strategy receives capital, at what size, under what portfolio constraints | The strategy's content or structure; it accepts or declines, never redesigns |
 | Trade Execution Manager | How an accepted trade is placed and managed through its lifecycle | Whether the trade should exist; strategy selection; sizing beyond the approved constraints |
 

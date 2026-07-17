@@ -14,7 +14,7 @@ Mandatory common fields for every decision artifact:
 |---|---|
 | **Decision** | The explicit outcome produced by the agent. |
 | **Decision Rationale** | The agent's reasoning, summarized from the structured evidence. |
-| **Evidence References** | References to structured analyst fields and/or prior structured decision artifacts only. |
+| **Evidence References** | References to structured analyst fields, prior structured decision artifacts, and/or declared external state inputs (see §3) only. |
 | **Assumptions** | Any assumptions made while reaching the decision. |
 | **Constraints** | Any decision boundaries or conditions that affected the outcome. |
 | **Confidence** | Qualitative confidence in the decision process: High / Medium / Low. |
@@ -30,6 +30,14 @@ Every decision conclusion must reference one or more structured evidence element
 
 - No conclusion may exist without traceable supporting evidence.
 - Narrative explanations are not valid evidence references.
+
+Three classes of reference are admissible:
+
+1. **Structured analyst fields** — fields of an analyst Structured Output Contract.
+2. **Prior structured decision artifacts** — Structured Decision Contracts produced earlier in the chain.
+3. **Declared external state inputs** — external, non-pipeline state (e.g., current portfolio state; live market or order state at execution time) that an agent's design specification explicitly declares as an input. Two rules govern this class:
+   - An external state reference must point at a **recorded snapshot** of that state at decision time, captured as part of the pipeline's written record — never at a live, mutable system. A decision that cannot be reconstructed after the fact from its recorded references violates the platform's auditability goal.
+   - Declared external inputs are **facts about state, never evidence about the trade**. They may constrain a decision (e.g., available risk budget) but can never substitute for analyst evidence.
 
 ## 4. Decision Inheritance
 

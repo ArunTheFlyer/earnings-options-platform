@@ -45,7 +45,7 @@ Authority increases as work flows downstream:
 
 - Analysts have **no decision authority** — their output is evidence.
 - The Strategist decides only **what to propose**, including proposing nothing.
-- The Peer Reviewer can **block or return** a proposal, but cannot originate one.
+- The Peer Reviewer can **approve or block** a proposal, but cannot originate one.
 - The Portfolio Manager holds **final authority over capital** — only it can commit the portfolio to a trade.
 - The Execution Manager decides only **how** to carry out what has already been approved, never whether.
 
@@ -55,7 +55,7 @@ A rejection at any stage ends the pipeline for that candidate. There is no route
 
 Information flows strictly forward. Each stage receives the accumulated outputs of all prior stages and adds its own contribution. Nothing is passed implicitly: if a downstream agent needs a fact, an upstream agent must have stated it. This makes every hand-off a reviewable artifact and every final decision reconstructible from the written record.
 
-The one deliberate exception to forward flow is rejection: the Peer Reviewer and Portfolio Manager may send a proposal back or end it, which is itself a recorded outcome, not a silent loop.
+The one deliberate exception to forward flow is rejection: the Peer Reviewer and Portfolio Manager may end a proposal's run, which is itself a recorded outcome. There are no revision loops — a rejected proposal is not sent back for rework.
 
 ## Design Goals
 
