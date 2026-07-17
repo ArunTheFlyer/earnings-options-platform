@@ -15,6 +15,8 @@ Step-by-step instructions for running this platform. No coding required: the pip
   ```
 - A stock you're interested in, with **earnings roughly ten calendar days out** (that's the pipeline's entry window).
 
+> **Cost note:** this platform is free and open source, but it runs entirely on **your own** Claude Code — every run uses **your** subscription/usage, not the author's. There is no hosted service and no separate account: it's code you run locally, so your usage, your data, your machine.
+
 ## 2. What a run does
 
 One run takes one ticker through five AI agents, in order:
