@@ -2,6 +2,10 @@
 
 _Template only — not effective policy. Fill every section as `policy/portfolio-policy.md` and submit for review. The Portfolio Manager prompt is authored only after an initial reviewed form exists (PM spec D1). This is a class-4 platform reference artifact: versioned, reviewed, and delivered into the PM's context at run time._
 
+## Policy Version and Effective Date
+
+<!-- e.g., "portfolio-policy v1 — effective 2026-07-XX". Decisions cite this line in their Evidence References; bump the version on every change. -->
+
 ## Risk Budget
 
 <!-- Total capital at risk permitted across open earnings positions; per-trade maximum risk (absolute or % of portfolio). -->

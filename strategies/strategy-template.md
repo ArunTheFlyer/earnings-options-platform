@@ -34,6 +34,10 @@ _Template only — not an approved strategy. Copy to `strategies/<strategy-name>
 
 <!-- Permitted adjustments (the Execution Manager's ADJUST outcome is bounded by this section), or "none". -->
 
+## Not This Strategy When
+
+<!-- Disqualifying conditions, stated against structured-contract fields (e.g., liquidity below X, term structure shaped Y). The Strategist's per-strategy comparison lines and the Peer Reviewer's Strategy-selection-error checks test directly against this section. -->
+
 ## Primary Risks
 
 <!-- The known failure modes of the structure. -->
