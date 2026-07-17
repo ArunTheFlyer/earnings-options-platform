@@ -89,7 +89,9 @@ One Structured Decision Contract per candidate per pipeline execution, Status Fi
 
 ## 11. Prompt Realignment Requirements (review finding F6)
 
-The existing prompt must be realigned to this specification. The known deltas:
+_Implemented 2026-07-17; retained as record of why the prompt changed._
+
+The realignment deltas:
 
 1. Inputs restated as structured contracts (not "written assessments"), per the handoff contract.
 2. Output restated as the Structured Decision Contract of section 6 (the current bespoke Recommendation block lacks Decision, Evidence References, Constraints, and Status).

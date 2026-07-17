@@ -309,3 +309,21 @@ Dispositions: all three flagged design choices accepted (comparison field, Missi
 ### Next Actions
 
 - Reviewer verification of the S1-S4/D2 diffs; on pass, F6 prompt realignment begins.
+
+## Review Session (addendum) + Realignment
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); realignment by implementing engineer
+Target Files: docs/design/earnings-options-strategist-design.md (PASSED, commit dea1d41); agents/earnings-options-strategist.md (realigned per F6)
+Status: Spec PASSED; realigned prompt submitted for review
+
+### Decisions Made
+
+- Dashboard updated: strategist design spec PASSED 2026-07-17.
+- F6 realignment implemented against section 11's eight deltas: structured-contract inputs (incl. strategies/ and the conditional Earnings History Analyst input per OAQ-1); ADR-004 ten-field Structured Decision Contract; historical-earnings references removed/conditioned; regime promoted to must-engage (new Regime Engagement section); peer-review sentence covers all outcomes incl. audit-basis non-trade; ~10-day scope sentence removed (Watchlist property); five-strategy cap cites decision-layer.md §3; risk/reward profile restored in Strategy Specification.
+- Reviewer's advance notes honored: surgical realignment (Mission anti-goals, Philosophy, evidence-first Thinking Process, NO TRADE dignity, Professional Standards, Guardrails preserved); P1-pattern conditionality applied (Strategy Specification conditional on Decision = Strategy with explicit "no strategy in non-trade artifacts is correct, not a defect").
+- Old optional findings folded in and noted: heading hierarchy normalized (all # sections); confidence-score wording replaced by the Decision Confidence field per the decision output contract. Spec section 11 marked historical per reviewer condition.
+
+### Next Actions
+
+- Reviewer: section-11-deltas acceptance check, then full 12-dimension review of the realigned prompt.
