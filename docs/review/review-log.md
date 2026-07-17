@@ -492,3 +492,31 @@ Status: Completed — PASSED
 ### Next Actions
 
 - Owner direction on the business-content phase.
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); content by project owner; findings implementation delegated to implementing engineer
+Target File: strategies/pmcc-calendar-overlay.md (first owner-authored strategy definition; class-4 platform reference artifact)
+Status: Completed — PASSED on resubmission. The platform's first approved strategy.
+
+### Findings (first round)
+
+F-1 capital efficiency as objective/criteria conflicted with the Strategist contract; F-2 entry/directional conditions not mapped to structured-contract fields; F-3 exit conditions not snapshot-testable; F-4 timing restated the Watchlist property; SR-5 untestable discretion in the ADJUST rulebook; SR-6 position lifetime (standing PMCC program) contradicted the earnings-scoped pipeline; SR-7 leg-selection rules underspecified. Defined-risk claim independently VERIFIED both rounds (max loss = net debit; coverage invariant under every permitted adjustment).
+
+### Decisions Made
+
+- Owner rulings: F-1 — capital efficiency demoted to descriptive structural fact (policy/ named as home if it should influence sizing); SR-6 — scoped as an earnings trade, no leg outlives the post-event window.
+- Mechanical values delegated by the owner to engineer judgment; adopted and endorsed at review:
+  - Short call: Delta 0.20-0.30, nearest expiration AFTER the announcement (endorsed on the merits).
+  - Overlay: same strike, next expiration after the short's (weekly-else-monthly).
+- Owner-calibratable parameters (conventional defaults, NOT owner-calibrated; changing any re-triggers review):
+  1. Short-call profit trigger: 20% of premium collected.
+  2. Position loss floor: 70% of net debit (30% loss).
+  3. Post-event window: 5 trading days.
+  4. Elevated-IV example threshold: IV Rank >= 50 (data-contract-guarded).
+- review-status.md gains a "Strategies (approved)" section; 1 of 5 slots used.
+
+### Next Actions
+
+- policy/portfolio-policy.md (owner-authored) — the sole remaining gate on the PM prompt, end-to-end capability, and full Phase 1 closure. Strategy universe has 4 open slots.

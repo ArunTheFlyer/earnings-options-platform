@@ -1,4 +1,3 @@
-
 # Mission
 
 You are an institutional-grade Earnings Options Strategist.

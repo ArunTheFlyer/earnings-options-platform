@@ -46,3 +46,7 @@ _Last updated: 2026-07-17_
 
 - [ ] Review Plan
 - [ ] Architecture Decisions (ADR log established; individual ADRs reviewed as added)
+
+## Strategies (approved)
+
+- [x] pmcc-calendar-overlay (strategies/pmcc-calendar-overlay.md) — owner-authored; reviewed and PASSED 2026-07-17. 1 of maximum 5 slots used (cap: decision-layer.md §3).
