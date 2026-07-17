@@ -72,12 +72,7 @@ The full set of principles lives in [docs/design-principles.md](docs/design-prin
 
 ## Development Roadmap
 
-> Placeholder — to be defined as the platform matures.
-
-- [ ] Author the seven agent prompt definitions
-- [ ] Define the strategy document format and initial strategies
-- [ ] Add worked examples of full pipeline runs
-- [ ] Evaluate and iterate on agent outputs against real earnings events
+See [ROADMAP.md](ROADMAP.md) for the phased project roadmap. Current state: Phase 0 (Repository Foundation) is complete; Phase 1 (Agent Design Review) is in progress.
 
 ## Future Expansion
 
