@@ -2,6 +2,18 @@
 
 A multi-agent AI platform for researching, evaluating, and managing options trades around earnings events.
 
+## Quick Start
+
+1. Install [Claude Code](https://claude.com/claude-code) and clone this repository.
+2. Open the repo folder in Claude Code.
+3. Type: `Run the pipeline on <TICKER>. Earnings <date> <AMC|BMO>.` (pick a stock with earnings ~10 days out)
+4. Confirm the earnings date when echoed back; supply data files in `agent-data-source/` if asked.
+5. Read the peer-reviewed recommendation — then make your own trade decision. The pipeline never touches your money.
+
+Full walkthrough: **[docs/user-guide.md](docs/user-guide.md)** · Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-examples.md)
+
+> **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
+
 ## Purpose
 
 Trading options around earnings requires synthesizing several distinct kinds of analysis — market conditions, price action, options pricing, strategy design, risk review, and portfolio fit. Doing all of this in a single prompt produces opaque, unrepeatable decisions.

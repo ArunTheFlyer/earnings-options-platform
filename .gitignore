@@ -1,0 +1,13 @@
+# Private working artifacts — never published
+response-to-chatgpt.md
+
+# Owner/user-supplied data files (private)
+agent-data-source/*
+!agent-data-source/.gitkeep
+
+# Run records are the user's private trading record — local only
+runs/*
+!runs/.gitkeep
+
+# Personal portfolio policy (paused per ADR-005; private if ever filled)
+policy/portfolio-policy.md

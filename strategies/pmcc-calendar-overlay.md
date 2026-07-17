@@ -1,4 +1,3 @@
-# Poor Man's Covered Call + Calendar Overlay
 
 ## Structure
 
