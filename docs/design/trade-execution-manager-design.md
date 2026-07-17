@@ -50,13 +50,18 @@ Per ADR-004, execution decisions are recorded as **Structured Decision Contracts
 8. **Confidence** — High / Medium / Low, per the decision output contract.
 9. **Status** — Final before any order is placed.
 
-**B. Lifecycle records** — for each subsequent lifecycle decision (adjustment, exit) a Structured Decision Contract of the same shape; for fills and outcomes, record entries appended to the written record. The lifecycle decision vocabulary beyond EXECUTE/HALT (e.g., ADJUST, EXIT) is fixed by the prompt within this shape.
+**B. Lifecycle records** — for each subsequent lifecycle decision a Structured Decision Contract of the same shape; for fills and outcomes, record entries appended to the written record. The lifecycle decision vocabulary is fixed here (decision output contract §2: outcome values belong to the design specification, never the prompt):
+
+- **ADJUST** — a change to the open position, permitted only within the strategy's defined plan and the approved portfolio constraints.
+- **EXIT** — closing the position: per the exit plan, or a constraint-compelled early close with the compelling condition cited.
+
+Partial fills are a fill state handled within EXECUTE's Constraint Validation — not a decision outcome. The complete outcome set is: EXECUTE, HALT, ADJUST, EXIT.
 
 Conditionally populated fields state "none", never omitted.
 
 ## 7. Downstream Consumers
 
-- **The trader and the portfolio record** — execution artifacts and outcome records are terminal pipeline artifacts.
+- **The trader and the portfolio record** — execution artifacts and outcome records are terminal pipeline artifacts. HALT and exit outcomes enter the portfolio record, so committed-but-undeployed or released capital is reflected there and later runs' portfolio snapshots carry no phantom allocation (review finding T2; the snapshot contract accounts for this — PM spec, Open Design Question 2).
 - **Future post-trade review** — outcome records are its raw material (not yet specified).
 
 ## 8. Reasoning Process
@@ -82,11 +87,11 @@ One Execution Plan artifact per accepted decision; lifecycle decision artifacts 
 
 ## 11. Open Design Questions
 
-1. **Execution semantics vocabulary** — the lifecycle decision set beyond EXECUTE/HALT (ADJUST, EXIT, partial-fill handling) needs fixing at prompt authoring; whether it belongs in this spec or the prompt is a contract-weight call for the review.
+1. ~~Execution semantics vocabulary~~ — RESOLVED; see section 12, D1.
 2. **Market/order data contract** — the snapshot fields for quotes, fills, and position state belong to a future data contract (OAQ-2 registry).
 3. **Broker/venue integration** — actual order placement is a Phase 5 implementation concern; this spec deliberately describes the decision artifacts, not the transport.
 4. **Post-trade review** — the consumer of outcome records is unspecified (future capability; related to ROADMAP future-expansion notes).
 
 ## 12. Resolved Architectural Decisions
 
-None yet.
+- **D1 (2026-07-17) — Lifecycle vocabulary fixed in-spec (review finding T1; owner-accepted set):** the outcome set is EXECUTE, HALT, ADJUST, EXIT, defined in section 6B; partial fills are a fill state within EXECUTE's Constraint Validation, not an outcome. Vocabulary lives in this specification per decision output contract §2 — outcome values are never defined by the prompt. Closes the former Open Design Question 1.

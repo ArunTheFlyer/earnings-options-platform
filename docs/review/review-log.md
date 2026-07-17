@@ -417,3 +417,27 @@ Status: Completed — both decision-layer specs authored; submitted for batched 
 ### Next Actions
 
 - Batched review of both specs; on pass, ODQ rulings (esp. PM portfolio policy) before prompt authoring.
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); rulings by project owner; fixes by implementing engineer
+Target Files: docs/design/portfolio-manager-design.md, docs/design/trade-execution-manager-design.md (commit ced2ee1, batched review)
+Status: Completed — PM passed contingent on M1; TEM one correctness finding (T1); all fixes applied same session, diffs pending confirmation
+
+### Findings
+
+PM — M1 (minor): the two Constraints fields (Portfolio Constraints vs ADR-004 common Constraints) needed their distinction stated.
+TEM — T1 (correctness): lifecycle vocabulary cannot be prompt-defined (decision output contract §2 assigns outcome values to the spec); T2 (recommended): HALT/exit leaves committed capital with no stated release path into the portfolio record.
+Accepted drafting choices: Observation Dispositions as structured field; full decision contracts for lifecycle decisions; HALT feasibility-only terminal semantics.
+
+### Decisions Made
+
+- Owner ruling (PM ODQ-1): portfolio policy lives in a future versioned policy/ class-4 reference artifact (PM spec D1); joins the OAQ-2 delivery registry; PM prompt blocked until policy/ exists in initial form.
+- Owner ruling (T1 vocabulary): reviewer's recommended set accepted — EXECUTE, HALT, ADJUST, EXIT; partial fills are a fill state within EXECUTE's Constraint Validation (TEM spec D1). Closes TEM ODQ-1.
+- M1: distinguishing sentences added to both PM Constraints fields.
+- T2: HALT/exit outcomes enter the portfolio record (TEM §7); PM ODQ-2 extended so the snapshot contract accounts for in-flight and halted commitments.
+
+### Next Actions
+
+- Reviewer diff confirmation → both spec rows check as passed. TEM prompt authoring unblocked on pass; PM prompt remains blocked on policy/.

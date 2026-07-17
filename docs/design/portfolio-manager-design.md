@@ -42,12 +42,12 @@ Per ADR-004, one **Structured Decision Contract** (with optional Narrative Expla
 
 1. **Decision** — ACCEPTED or DECLINED.
 2. **Position Size** (agent-specific; ACCEPTED only, otherwise "none") — the size at which the trade is committed.
-3. **Portfolio Constraints** (agent-specific; ACCEPTED only, otherwise "none") — portfolio-level conditions the trade must respect downstream (e.g., exposure limits the position operates under).
+3. **Portfolio Constraints** (agent-specific; ACCEPTED only, otherwise "none") — portfolio-level conditions imposed on the position going forward (e.g., exposure limits it operates under). Distinct from field 8: this field constrains the trade downstream.
 4. **Observation Dispositions** (agent-specific) — one disposition per peer-review observation received (accepted risk / mitigated via constraints / grounds for decline); "none" when the review carried no observations.
 5. **Decision Rationale** — the portfolio-context reasoning to the Decision, including how the portfolio snapshot bore on it.
 6. **Evidence References** — the two decision artifacts consumed and the portfolio-state snapshot; chain references into analyst evidence where relied upon.
 7. **Assumptions** — explicitly labeled; otherwise "none".
-8. **Constraints** — decision boundaries that shaped the outcome (risk budget, concentration limits applied); otherwise "none".
+8. **Constraints** — the ADR-004 common field: the boundaries this decision operated under (risk budget, concentration limits applied); otherwise "none". Distinct from field 3: this field records what shaped the decision, not what is imposed downstream.
 9. **Confidence** — High / Medium / Low, per the decision output contract.
 10. **Status** — Final before hand-off; downstream agents consume Final artifacts only.
 
@@ -81,9 +81,9 @@ One Structured Decision Contract per peer-approved proposal, Status: Final befor
 
 ## 11. Open Design Questions
 
-1. **Portfolio policy artifact** — the concrete risk-budget rules, concentration limits, and sizing method this agent applies are business policy, not architecture. Where do they live — a future versioned platform reference artifact (class 4, analogous to `strategies/`), the prompt, or owner-provided per run? Must be decided before the prompt is authored.
-2. **Portfolio snapshot contract** — the fields and format of the recorded portfolio-state snapshot belong to a future data contract (shares the A4 reference-artifact registry concern in OAQ-2).
+1. ~~Portfolio policy artifact~~ — RESOLVED; see section 12, D1.
+2. **Portfolio snapshot contract** — the fields and format of the recorded portfolio-state snapshot belong to a future data contract (shares the A4 reference-artifact registry concern in OAQ-2). The snapshot contract must account for in-flight and halted commitments: capital committed by an ACCEPTED decision that the Trade Execution Manager subsequently HALTs or exits must be reflected back into the portfolio record, so later runs' snapshots carry no phantom allocation (review finding T2).
 
 ## 12. Resolved Architectural Decisions
 
-None yet.
+- **D1 (2026-07-17) — Portfolio policy home (owner ruling):** the concrete risk-budget rules, concentration limits, and sizing method live in a future versioned `policy/` platform reference artifact (decision output contract §3, class 4), analogous to `strategies/` — auditable, reviewable, and updatable without re-reviewing the prompt. It joins the OAQ-2 reference-artifact delivery registry. Prompt authoring remains blocked until `policy/` exists in at least an initial form.
