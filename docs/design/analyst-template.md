@@ -56,15 +56,12 @@ List exactly what the analyst consumes, per its workflow.md step: upstream asses
 
 ## 6. Outputs
 
-Define one written assessment per pipeline execution with a **stable output contract**: a fixed set of named sections in a fixed order that downstream agents can rely on. Every analyst's contract must contain at least:
+Every analyst produces **two complementary deliverables** per assessment, per [ADR-002](../review/adr-002-analyst-output-contract.md):
 
-- **Facts** — objective observations only, stated without interpretation.
-- **Interpretation** — the analyst's conclusions drawn from the facts (a specific design may name this section for its domain, e.g. "Evidence Summary").
-- **Assumptions** — anything the assessment depends on that is not supported by available evidence, explicitly labeled.
-- **Confidence** — High, Medium, or Low; qualitative only; represents the strength of the supporting evidence, not a prediction.
-- **Executive Summary** — a concise synthesis for downstream readers.
+1. **Structured Output Contract** — the machine-consumable interface for downstream agents.
+2. **Narrative Explanation** — the human-readable explanation supporting the structured contract.
 
-A specific design adds its domain sections (classifications, indicators, risks, levels, etc.) and fixes the full ordering. Assessments are valid for the single pipeline execution that produced them; caching or reuse is outside the analyst's responsibilities.
+The required interface for both — including the mandatory common fields (Facts, Analysis, Assumptions, Confidence, Executive Summary), the domain-extension rule, and the characteristics of each deliverable — is defined canonically in [docs/contracts/analyst-output-contract.md](../contracts/analyst-output-contract.md). A specific design fixes its full field set and ordering against that contract. Assessments are valid for the single pipeline execution that produced them; caching or reuse is outside the analyst's responsibilities.
 
 ## 7. Downstream Consumers
 

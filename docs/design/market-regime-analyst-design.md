@@ -43,7 +43,12 @@ The Market Regime Analyst is completely symbol-agnostic. The watchlist is NOT an
 
 ## 6. Outputs
 
-One regime assessment per pipeline execution, with a stable output contract. The assessment always contains exactly these sections, in this order:
+Per [ADR-002](../review/adr-002-analyst-output-contract.md), the regime assessment consists of two complementary deliverables mapped to the [canonical analyst output contract](../contracts/analyst-output-contract.md):
+
+1. **Structured Output Contract** — the machine-consumable artifact, whose fields are the sections below (Facts, Evidence Summary as the Analysis field, Assumptions, Confidence, and Executive Summary map to the contract's required common fields; the rest are this analyst's domain extensions).
+2. **Narrative Explanation** — the accompanying human-readable explanation, consistent with the structured artifact per the canonical contract.
+
+One regime assessment per pipeline execution. The structured artifact always contains exactly these sections, in this order:
 
 1. **Regime Classification** — the current market regime. The regime classification must come from the project's approved taxonomy. The taxonomy is maintained separately from this design specification.
 2. **Facts** — objective observations only, stated without interpretation, so downstream agents can distinguish raw evidence from analytical conclusions.

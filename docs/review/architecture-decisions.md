@@ -31,3 +31,12 @@ A living record of every significant architectural decision in this project. Dec
 - **Alternatives Considered:** (a) Write agent prompts first and extract the architecture from them afterwards — rejected because the architecture would then codify accidents of drafting rather than deliberate design. (b) Evolve structure informally without governance documents — rejected because consistency across seven agents cannot be maintained by memory alone.
 - **Consequences:** Agent authoring is slower to start but each prompt has an unambiguous specification to meet; reviews have objective criteria; documentation must be kept current as the architecture evolves, which is accepted overhead. All future agents and documents are bound by the review process in [review-plan.md](review-plan.md).
 - **Related Files:** `README.md`, `docs/architecture.md`, `docs/workflow.md`, `docs/design-principles.md`, `docs/glossary.md`, `docs/review/`
+
+---
+
+## ADR-002: Analyst Output Contract
+
+Recorded as a standalone document: [adr-002-analyst-output-contract.md](adr-002-analyst-output-contract.md).
+
+- **Status:** Accepted
+- **Summary:** All analyst agents produce two complementary artifacts — a Structured Output Contract (machine-consumable interface) and a Narrative Explanation (human-readable support). Canonical interface: `docs/contracts/analyst-output-contract.md`.

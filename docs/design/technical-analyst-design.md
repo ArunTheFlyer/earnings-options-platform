@@ -39,7 +39,12 @@ Per workflow.md step 3:
 
 ## 6. Outputs
 
-One technical assessment per candidate per pipeline execution, with a stable output contract. The assessment always contains exactly these sections, in this order (objective observations before analytical interpretation):
+Per [ADR-002](../review/adr-002-analyst-output-contract.md), the technical assessment consists of two complementary deliverables mapped to the [canonical analyst output contract](../contracts/analyst-output-contract.md):
+
+1. **Structured Output Contract** — the machine-consumable artifact, whose fields are the existing sections below with unchanged semantics (Facts, Trend Assessment as the Analysis field, Assumptions, Confidence, and Executive Summary map to the contract's required common fields; the rest are this analyst's domain extensions).
+2. **Narrative Explanation** — the accompanying human-readable explanation, consistent with the structured artifact per the canonical contract.
+
+One technical assessment per candidate per pipeline execution. The structured artifact always contains exactly these sections, in this order (objective observations before analytical interpretation):
 
 1. **Facts** — objective observations only (prices, levels, volumes, dated events), stated without interpretation.
 2. **Trend Assessment** — the Technical Analyst's primary interpretation: the explicit classification of the current technical state and all analytical conclusions drawn from the facts. This section fulfills the template's required Interpretation layer, named for this domain per template section 6; there is no separate Interpretation section, and analytical conclusions appear nowhere else.
@@ -87,8 +92,8 @@ The template's guardrails apply in full. Unique to this analyst:
 2. **Historical earnings reaction analysis** — a future architectural capability whose ownership is intentionally undecided. It is NOT part of the Technical Analyst's responsibility. Note: the Earnings Options Strategist's prompt currently expects historical earnings behavior from the technical assessment ("historical earnings behavior where provided") — that expectation will need realignment once ownership is decided.
 3. **Multi-candidate handling** — one assessment per candidate is specified here; whether candidates are processed in one run sequentially or as parallel pipeline branches is an orchestration question (Phase 4) that does not change this contract.
 4. **Relative strength** — the strategist's prompt references relative strength as technical evidence; whether it is a required element of the Trend Assessment or an optional observation should be settled by the data contract.
-5. **Structured vs. narrative outputs (platform-wide)** — Should all analyst outputs be split into: (a) a structured machine-consumable contract, and (b) a human-readable narrative explanation? The current analyst output contracts are becoming increasingly narrative. This question is deliberately unanswered here; it is a platform-wide architectural question that should be resolved before additional analyst specifications are created.
+5. ~~Structured vs. narrative outputs (platform-wide)~~ — RESOLVED; see section 12, D1.
 
 ## 12. Resolved Architectural Decisions
 
-None yet.
+- **D1 (2026-07-16) — Structured vs. narrative outputs:** Resolved by [ADR-002](../review/adr-002-analyst-output-contract.md). Every analyst produces two complementary artifacts — a Structured Output Contract and a Narrative Explanation — per the [canonical analyst output contract](../contracts/analyst-output-contract.md). This closes Open Design Question 5 and is now part of the platform architecture.
