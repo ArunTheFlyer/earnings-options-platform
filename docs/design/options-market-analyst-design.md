@@ -97,8 +97,8 @@ The template's and output contract's guardrails apply in full. Unique to this an
 ## 11. Open Design Questions
 
 1. **Canonical options data contract** — which options market data fields (chains, volatility surfaces, flow data) are canonical inputs is undefined; shares the future data-contract artifact with the other analysts' open questions.
-2. **Realized-vs-implied volatility comparison** — comparing implied volatility to the candidate's realized/historical volatility is analytically adjacent to both this analyst and the undecided historical-earnings-reaction capability (Technical Analyst Open Design Question 2). Ownership is unresolved.
-3. **Post-earnings volatility crush analysis** — describing the candidate's typical post-earnings IV behavior is unowned. It depends on historical earnings data, so its ownership should be decided together with Question 2 and the Technical Analyst's Question 2.
+2. **Realized-vs-implied volatility comparison** — NOT owned by this analyst as specified. Ownership is consolidated platform-wide as [OAQ-1](../review/open-architecture-questions.md) ("Who owns historical earnings-event analytics?").
+3. **Post-earnings volatility crush analysis** — same consolidation: see [OAQ-1](../review/open-architecture-questions.md).
 4. **Stale options data** — how the analyst treats options data that may be stale (report staleness as a Fact, degrade Confidence, or both) should be settled by the data contract.
 
 ## 12. Resolved Architectural Decisions

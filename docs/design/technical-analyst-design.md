@@ -89,7 +89,7 @@ The template's guardrails apply in full. Unique to this analyst:
 ## 11. Open Design Questions
 
 1. **Chart data contract** — which price history depth, timeframes, and derived indicators are canonical inputs is deferred to the future data contract (shared with the Market Regime Analyst's Open Design Question 2).
-2. **Historical earnings reaction analysis** — a future architectural capability whose ownership is intentionally undecided. It is NOT part of the Technical Analyst's responsibility. Note: the Earnings Options Strategist's prompt currently expects historical earnings behavior from the technical assessment ("historical earnings behavior where provided") — that expectation will need realignment once ownership is decided.
+2. **Historical earnings reaction analysis** — NOT part of the Technical Analyst's responsibility. Ownership is consolidated platform-wide as [OAQ-1](../review/open-architecture-questions.md) ("Who owns historical earnings-event analytics?"); see that question for scope, context, and dependents.
 3. **Multi-candidate handling** — one assessment per candidate is specified here; whether candidates are processed in one run sequentially or as parallel pipeline branches is an orchestration question (Phase 4) that does not change this contract.
 4. **Relative strength** — the strategist's prompt references relative strength as technical evidence; whether it is a required element of the Trend Assessment or an optional observation should be settled by the data contract.
 5. ~~Structured vs. narrative outputs (platform-wide)~~ — RESOLVED; see section 12, D1.
