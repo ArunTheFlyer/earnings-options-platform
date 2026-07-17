@@ -23,6 +23,13 @@ Status: ✅ Complete
 ## Phase 1 — Agent Design Review
 Status: 🚧 In Progress
 
+### Milestone: Analyst Design Framework
+Status: ✅ Complete
+
+- [x] Platform-wide analyst principles documented (evidence-only, Facts/Interpretation separation, no recommendations)
+- [x] Analyst/consumer contract established in architecture and workflow
+- [x] Canonical analyst design template created (docs/design/analyst-template.md)
+
 ### Core Decision Agents
 - [x] Earnings Options Strategist
 - [ ] Strategy Peer Reviewer
