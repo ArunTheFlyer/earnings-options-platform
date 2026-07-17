@@ -49,3 +49,12 @@ Recorded as a standalone document: [adr-003-peer-review-independence.md](adr-003
 
 - **Status:** Accepted
 - **Summary:** The Strategy Peer Reviewer independently evaluates the original analyst Structured Output Contracts in addition to the Strategist's structured output; narrative artifacts are never review inputs. Reviewer outcomes: APPROVED / APPROVED WITH OBSERVATIONS / REJECTED (with defect categories).
+
+---
+
+## ADR-004: Decision Output Contract
+
+Recorded as a standalone document: [adr-004-decision-output-contract.md](adr-004-decision-output-contract.md).
+
+- **Status:** Accepted
+- **Summary:** All decision agents produce a canonical Structured Decision Contract (Decision, Decision Rationale, Evidence References, Assumptions, Constraints, Confidence, Status) plus an optional human-facing Narrative Explanation. Canonical interface: `docs/contracts/decision-output-contract.md`.
