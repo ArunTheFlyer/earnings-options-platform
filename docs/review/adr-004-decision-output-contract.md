@@ -16,4 +16,5 @@
   - Every decision specification inherits the same interface.
   - Structured decision artifacts become the canonical automation interface.
   - Narratives remain human-facing only (consistent with ADR-002 and the reviewer evidence model of ADR-003).
+  - The narrative is mandatory for analysts (ADR-002) but optional for decision agents — a deliberate asymmetry: analyst narratives are load-bearing for human peer review of evidence, while decision artifacts are already fully traceable through their Evidence References, leaving decision narratives to serve audit and inspection.
 - **Related Files:** `docs/contracts/decision-output-contract.md`, `docs/design/decision-layer.md`, `docs/contracts/analyst-output-contract.md`, `docs/review/adr-002-analyst-output-contract.md`, `docs/review/adr-003-peer-review-independence.md`

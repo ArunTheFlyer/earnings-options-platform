@@ -18,7 +18,7 @@ Mandatory common fields for every decision artifact:
 | **Assumptions** | Any assumptions made while reaching the decision. |
 | **Constraints** | Any decision boundaries or conditions that affected the outcome. |
 | **Confidence** | Qualitative confidence in the decision process: High / Medium / Low. |
-| **Status** | The lifecycle state of the decision artifact (e.g., Draft, Final). |
+| **Status** | The lifecycle state of the decision artifact (e.g., Draft, Final). An agent finalizes its own artifact before hand-off; §6's no-modification rule governs other agents' artifacts, and downstream agents consume Final artifacts only. |
 
 This contract defines the interface only. Business-specific values — the outcomes a given agent may return, its constraint semantics, its status vocabulary beyond the lifecycle concept — are defined by each agent's own design specification within the boundaries set by the decision-layer architecture.
 

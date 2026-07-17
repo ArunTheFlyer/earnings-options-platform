@@ -26,4 +26,8 @@ Project terminology, defined in plain business language. Use these terms consist
 
 **Evidence** — An observable input: market data, a prior stage's written output, or a stated fact. Every claim in the pipeline must trace to evidence or be labeled an assumption.
 
+**Evidence Confidence** — In analyst artifacts (per the analyst output contract): the strength of the supporting evidence behind an assessment, expressed qualitatively as High / Medium / Low. Not a prediction. Compare: Decision Confidence.
+
+**Decision Confidence** — In decision artifacts (per the decision output contract): qualitative confidence in the decision process itself, expressed as High / Medium / Low. Compare: Evidence Confidence.
+
 **Assumption** — Something a conclusion depends on that is not supported by available evidence. Assumptions are permitted only when explicitly labeled as such in the written record.
