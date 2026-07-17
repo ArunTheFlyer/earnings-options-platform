@@ -10,7 +10,7 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
    - `Run the pipeline on <TICKER>. Earnings <date> <AMC|BMO>.`
    - `/run-pipeline <TICKER>`
 
-   **Required:** the ticker only (one per run; pick a stock with earnings ~10 days out). **Optional:** the earnings date + session (fetched for you if omitted), a private note for your records, and pre-supplied data files. All forms: [examples/run-trigger-examples.md](examples/run-trigger-examples.md).
+   **Required:** the ticker only (one per run; pick a stock with earnings ~10 days out). **Optional:** the earnings date and session — AMC = after market close, BMO = before market open (fetched for you if omitted), a private note for your records, and pre-supplied data files. All forms: [examples/run-trigger-examples.md](examples/run-trigger-examples.md).
 4. Confirm the earnings date when echoed back; supply data files in `agent-data-source/` if asked.
 5. The run ends with a verdict: a recommended trade that survived independent AI peer review (with strikes, expirations, cost, and exit plan) — or a reasoned "no trade."
 
