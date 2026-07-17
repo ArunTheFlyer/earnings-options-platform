@@ -4,7 +4,7 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 
 ## Quick Start
 
-1. Install [Claude Code](https://claude.com/claude-code) and clone this repository.
+1. Install [Claude Code](https://claude.com/claude-code) and clone this repository. *(Free and open source — runs on your own Claude Code subscription/usage; no hosted service, no signup.)*
 2. Open the repo folder in Claude Code.
 3. Start a run — natural language or the packaged skill, your choice:
    - `Run the pipeline on <TICKER>. Earnings <date> <AMC|BMO>.`
