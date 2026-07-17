@@ -18,6 +18,25 @@ Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-exampl
 
 > **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
 
+## Run in Claude Cowork (Plugin)
+
+Besides Claude Code, the pipeline is also packaged as a **Claude Cowork plugin** — `earnings-options-analysis` — so you can run it inside the Claude desktop app without the repo present.
+
+**What it packages.** The five-agent *analysis* slice, as-is: Market Regime → Technical → Options → Strategist → Peer Reviewer, ending at the reviewer's verdict and your recorded decision. The Portfolio Manager and Trade Execution Manager stages are intentionally out of scope for the plugin. Everything the skill loads at runtime travels inside the plugin — all five agent prompts, the four contracts, the per-agent design specs, the approved strategy definitions, and the orchestration design — so it installs and runs as one self-contained unit (no clone required).
+
+**Install.** Accept [plugin/earnings-options-analysis.plugin](plugin/earnings-options-analysis.plugin) in Cowork, or install it from wherever you saved it.
+
+**Configure once** (top of the skill's `SKILL.md`):
+
+- `RUN_RECORDS_FOLDER` — a writable folder on your computer where each run's record is saved (not a read-only repo). If unset, the skill asks before writing.
+- `MARKET_DATA_CONNECTOR` — optional preferred market-data connector; if unset, the skill discovers any connected market-data MCP at runtime.
+
+**Data sourcing (tiered).** For every data need (broad-market readings, price history, options chain + IV) the plugin resolves data in order: (1) a market-data connector if one is available, (2) public web fetch (Yahoo Finance) for index levels and price history, (3) if data is still missing or inadequate — most often the options chain / IV — it stops and asks you for a file, naming exactly what it needs. It never fabricates data.
+
+**Trigger it** the same way as in Claude Code: `Run the pipeline on <TICKER>`, `analyze earnings for <TICKER>`, or `/analyze-earnings-trade <TICKER>`.
+
+> The plugin mirrors the analysis pipeline only — it never places a trade or sizes a position. You always make the final call, exactly as in Claude Code.
+
 ## What You Get
 
 Every run ends with one of three outcomes:
@@ -82,6 +101,7 @@ That's it — no reinstall, no separate updater. Your private files (`runs/`, `a
 
 - **Strategies:** the pipeline only recommends strategies defined in `strategies/` (max five, defined-risk only). Add your own from `strategies/strategy-template.md` — but note the governance rule: a strategy definition should be reviewed before you trust runs against it.
 - **Regime taxonomy:** the market classifications live in `docs/contracts/regime-taxonomy.md`.
+- **Cowork plugin:** the packaged Cowork plugin bundles copies of the agent prompts, contracts, strategies, and orchestration design under its own `skills/analyze-earnings-trade/references/` folder. When you change any of those source files here, rebuild/repackage the plugin so its bundled copies stay in sync.
 - **How it all works:** [docs/architecture.md](docs/architecture.md) (why), [docs/workflow.md](docs/workflow.md) (the pipeline), `docs/design/` (each agent's specification), `docs/review/` (how every piece was reviewed and decided).
 
 ---
@@ -116,6 +136,8 @@ Trade Execution Manager    — how is the approved trade placed and managed? (op
 
 Each stage consumes the outputs of the stages before it. No stage skips ahead, and no stage revisits a decision that belongs to another stage. See [docs/architecture.md](docs/architecture.md) and [docs/workflow.md](docs/workflow.md) for details.
 
+> **Cowork plugin scope.** The `earnings-options-analysis` Cowork plugin packages the analysis half of this pipeline — the first five stages, ending at the Strategy Peer Reviewer's verdict and your recorded decision. The Portfolio Manager and Trade Execution Manager stages are out of scope for the plugin.
+
 ## Agent Overview
 
 | Agent | Role |
@@ -143,9 +165,12 @@ Each stage consumes the outputs of the stages before it. No stage skips ahead, a
 ├── strategies/           # Approved strategy definitions + template (max 5, defined-risk)
 ├── policy/               # Portfolio policy template (PM agent release candidate)
 ├── examples/             # Run trigger examples
+├── plugin/               # Packaged Claude Cowork plugin (.plugin file)
 ├── agent-data-source/    # Your data files when asked (gitignored)
 └── runs/                 # Your run records (gitignored — local only)
 ```
+
+The `.claude/skills/analyze-earnings-trade/` skill in this repo is the same pipeline checklist that the standalone Cowork plugin wraps; the plugin additionally bundles the agent/contract/strategy/design files it needs so it can run without the repo present.
 
 ## Governance
 
