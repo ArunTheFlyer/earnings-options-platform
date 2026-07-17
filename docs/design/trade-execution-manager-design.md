@@ -41,7 +41,7 @@ Per ADR-004, execution decisions are recorded as **Structured Decision Contracts
 **A. Execution Plan artifact** (one per accepted decision) — full field set and ordering, fixed:
 
 1. **Decision** — EXECUTE (the order plan is actionable) or HALT (execution constraints failed; the run ends, recorded — there is no route back upstream).
-2. **Order Plan** (agent-specific; EXECUTE only, otherwise "none") — the orders to be placed: instruments, quantities within approved size, order types, and the entry-condition checks they depend on.
+2. **Order Plan** (agent-specific; populated when the Decision places or changes orders — EXECUTE, ADJUST, EXIT; otherwise "none") — the orders to be placed or changed: instruments, quantities within approved size, order types, and the condition checks they depend on.
 3. **Constraint Validation** (agent-specific) — each execution constraint checked (entry conditions, liquidity, pricing, approved size/constraints) and its observed result.
 4. **Decision Rationale** — how the approved specification and the market-state snapshot produced this plan (or the HALT).
 5. **Evidence References** — the portfolio decision artifact, the chained strategy specification elements relied on, and the market/order-state snapshots.
@@ -56,6 +56,8 @@ Per ADR-004, execution decisions are recorded as **Structured Decision Contracts
 - **EXIT** — closing the position: per the exit plan, or a constraint-compelled early close with the compelling condition cited.
 
 Partial fills are a fill state handled within EXECUTE's Constraint Validation — not a decision outcome. The complete outcome set is: EXECUTE, HALT, ADJUST, EXIT.
+
+**HALT lifecycle scope (review finding E2):** HALT is available only before any order is placed; once a position exists, HALT is not in the vocabulary. If state becomes unavailable post-fill, the agent records the unavailability and takes no action (acting requires state; no order requires none), reassessing at the next valid snapshot — and EXITs per the defined plan if, at that point, the exit plan's conditions are met or a constraint compels it. Invariant: **the record must never show a position as closed or capital as released that is not.**
 
 Conditionally populated fields state "none", never omitted.
 
@@ -83,7 +85,7 @@ One Execution Plan artifact per accepted decision; lifecycle decision artifacts 
 - Never exceed approved size or violate portfolio constraints; ambiguity resolves to the more conservative reading.
 - Market-state snapshots are facts about state, never evidence about the trade.
 - Every order, fill, and lifecycle event enters the written record; an unrecorded action did not happen.
-- No inferred state: if market/order state is unavailable, HALT and record it — never guess.
+- No inferred state: never guess. Pre-fill, unavailable state means HALT, recorded. Post-fill, unavailable state means record-and-hold per section 6B's HALT lifecycle scope — a forced exit without valid state would violate the same principle.
 
 ## 11. Open Design Questions
 
@@ -95,3 +97,5 @@ One Execution Plan artifact per accepted decision; lifecycle decision artifacts 
 ## 12. Resolved Architectural Decisions
 
 - **D1 (2026-07-17) — Lifecycle vocabulary fixed in-spec (review finding T1; owner-accepted set):** the outcome set is EXECUTE, HALT, ADJUST, EXIT, defined in section 6B; partial fills are a fill state within EXECUTE's Constraint Validation, not an outcome. Vocabulary lives in this specification per decision output contract §2 — outcome values are never defined by the prompt. Closes the former Open Design Question 1.
+- **D2 (2026-07-17) — Order Plan population (review finding E1, lockstep):** Order Plan is populated for every order-placing or order-changing Decision (EXECUTE, ADJUST, EXIT) — an EXIT without an order plan is unexecutable; §6B lifecycle artifacts share the §6A shape.
+- **D3 (2026-07-17) — HALT lifecycle scope (review finding E2, reviewer's record-and-hold rule adopted):** HALT is pre-fill only; post-fill unavailable state is recorded-and-held with reassessment at the next valid snapshot. Invariant: the record never shows a position closed or capital released that is not.

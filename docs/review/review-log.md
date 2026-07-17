@@ -459,3 +459,20 @@ Status: Both specs PASSED; TEM prompt submitted for review. Phase 1 design compl
 
 - Full 12-dimension review of agents/trade-execution-manager.md.
 - Owner: strategies/ + policy/ authoring timing (Phase 3).
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); fixes by implementing engineer
+Target File: agents/trade-execution-manager.md (commit 154d32a; full 12-dimension review)
+Status: Completed — one correctness finding (E2) plus spec-lockstep (E1) and minor (E3); all resolved same session, diff confirmation pending
+
+### Findings
+
+E1 (lockstep): the prompt's Order Plan population (EXECUTE/ADJUST/EXIT) was correct in substance but ahead of spec §6A ("EXECUTE only") — spec amended, prompt unchanged (D2).
+E2 (correctness): HALT semantics undefined across the lifecycle; unconditional no-inferred-state guardrail could strand an open position (run ended, capital "released" in the record while the real position exists). Reviewer's record-and-hold rule adopted as-is: HALT pre-fill only; post-fill unavailable state recorded-and-held, reassessed at next valid snapshot; invariant — the record never shows a position closed or capital released that is not (spec §6B/§10 + D3; prompt HALT rules and guardrail amended).
+E3 (minor): consumer sentence added to Output ("artifacts are terminal: trader and portfolio record").
+
+### Next Actions
+
+- Reviewer diff confirmation → TEM prompt passes; six of seven agents fully implemented. PM prompt and end-to-end runs remain gated on policy/ and strategies/.
