@@ -1,0 +1,119 @@
+# Workflow
+
+The end-to-end pipeline from candidate symbols to managed trades. Each stage consumes the accumulated outputs of the stages before it and produces a written artifact for the next.
+
+```
+Watchlist
+   ↓
+Market Regime Analyst
+   ↓
+Technical Analyst
+   ↓
+Options Market Analyst
+   ↓
+Earnings Options Strategist
+   ↓
+Strategy Peer Reviewer
+   ↓
+Portfolio Manager
+   ↓
+Trade Execution Manager
+```
+
+A rejection or "no trade" conclusion at any stage ends the pipeline for that candidate.
+
+---
+
+## 1. Watchlist
+
+**Purpose:** Define the universe of candidate symbols with upcoming earnings events that are worth analyzing.
+
+**Inputs:** The trader's curated list of symbols and their scheduled earnings dates.
+
+**Outputs:** The candidate symbol(s) and earnings event(s) to be analyzed in this run.
+
+**Consumer:** Market Regime Analyst (and all downstream stages, which analyze the same candidates).
+
+---
+
+## 2. Market Regime Analyst
+
+**Purpose:** Characterize the broad market environment so that all downstream analysis is grounded in current conditions rather than assumptions.
+
+**Inputs:** The watchlist candidates; broad market data (indices, volatility environment, prevailing trend and sentiment conditions).
+
+**Outputs:** A regime assessment — what kind of market this is, how favorable it is for risk-taking, and any environment-level cautions that downstream stages must respect.
+
+**Consumer:** Technical Analyst, and every stage after it, which must interpret their own findings in light of the regime.
+
+---
+
+## 3. Technical Analyst
+
+**Purpose:** Interpret the candidate's price action so the strategist knows where the stock stands and which levels matter.
+
+**Inputs:** The candidate symbol; its price history and chart data; the regime assessment.
+
+**Outputs:** A technical assessment — trend, key support and resistance levels, notable patterns, and how the stock is positioned heading into earnings. Evidence only; no trade recommendation.
+
+**Consumer:** Options Market Analyst and Earnings Options Strategist.
+
+---
+
+## 4. Options Market Analyst
+
+**Purpose:** Assess how the options market is pricing the earnings event, so strategy design is grounded in what a position actually costs and implies.
+
+**Inputs:** The candidate symbol and earnings date; options chain data (implied volatility, pricing across strikes and expirations); the technical assessment for context on relevant price levels.
+
+**Outputs:** An options-market assessment — the expected move implied by option prices, the volatility environment for this symbol, and how richly or cheaply different structures are priced. Evidence only; no trade recommendation.
+
+**Consumer:** Earnings Options Strategist.
+
+---
+
+## 5. Earnings Options Strategist
+
+**Purpose:** Synthesize all upstream evidence into a concrete trade proposal — or an explicit "no trade" conclusion.
+
+**Inputs:** The regime assessment, technical assessment, and options-market assessment for the candidate.
+
+**Outputs:** A recommendation: either a fully specified strategy proposal (structure, strikes, expiration, rationale, risk profile, and the evidence it rests on) or a reasoned "no trade" conclusion.
+
+**Consumer:** Strategy Peer Reviewer. A "no trade" conclusion ends the pipeline for this candidate.
+
+---
+
+## 6. Strategy Peer Reviewer
+
+**Purpose:** Independently challenge the proposal before it can reach capital — checking that the strategy actually follows from the evidence, that assumptions are stated, and that risks are honestly represented.
+
+**Inputs:** The strategist's proposal plus all upstream assessments it was built on.
+
+**Outputs:** A review verdict — approval (the proposal becomes an approved strategy), or rejection/return with the specific objections. Objections must cite evidence, not preference.
+
+**Consumer:** Portfolio Manager (on approval); Earnings Options Strategist (on return); a rejection ends the pipeline.
+
+---
+
+## 7. Portfolio Manager
+
+**Purpose:** Decide whether the approved strategy belongs in the portfolio — the final authority over capital.
+
+**Inputs:** The approved strategy with its full evidence trail; current portfolio state (positions, exposure, available risk budget).
+
+**Outputs:** An accept/decline decision. On accept: the position size and any portfolio-level constraints the trade must respect. On decline: the reason, recorded.
+
+**Consumer:** Trade Execution Manager (on accept); a decline ends the pipeline.
+
+---
+
+## 8. Trade Execution Manager
+
+**Purpose:** Carry out the accepted trade and manage it through its lifecycle. Execution only — this stage never revisits whether the trade should exist.
+
+**Inputs:** The accepted strategy with its approved size and constraints.
+
+**Outputs:** Order plan and placement, fills, and ongoing lifecycle management (monitoring, adjustment, and exit per the strategy's defined plan), plus a record of outcomes.
+
+**Consumer:** The trader and the portfolio record. Outcome records are also the raw material for future post-trade review.
