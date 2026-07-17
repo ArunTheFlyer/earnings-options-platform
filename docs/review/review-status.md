@@ -10,9 +10,9 @@ _Last updated: 2026-07-17_
 
 ## Supporting Analysts
 
-- [ ] Market Regime Analyst
-- [ ] Technical Analyst
-- [ ] Options Market Analyst
+- [x] Market Regime Analyst — prompt authored against passed design spec; batched 12-dimension review PASSED 2026-07-17
+- [x] Technical Analyst — prompt authored against passed design spec; batched 12-dimension review PASSED 2026-07-17
+- [x] Options Market Analyst — prompt authored against passed design spec; batched 12-dimension review PASSED 2026-07-17
 
 ## Decision Layer
 

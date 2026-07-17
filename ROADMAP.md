@@ -2,9 +2,9 @@
 
 **Current Phase:** Phase 1 — Agent Design Review
 
-**Current Target:** agents/strategy-peer-reviewer.md
+**Current Target:** owner sequencing pending (strategies/ content, PM/TEM specs, or Phase 2 documentation reviews)
 
-**Next Milestone:** Strategy Peer Reviewer Reviewed
+**Next Milestone:** Decision layer completed (Portfolio Manager + Trade Execution Manager) or Phase 3 opened (strategies/)
 
 ---
 
@@ -32,12 +32,12 @@ Status: ✅ Complete
 
 ### Core Decision Agents
 - [x] Earnings Options Strategist
-- [ ] Strategy Peer Reviewer
+- [x] Strategy Peer Reviewer
 
 ### Supporting Analysts
-- [ ] Market Regime Analyst
-- [ ] Technical Analyst
-- [ ] Options Market Analyst
+- [x] Market Regime Analyst
+- [x] Technical Analyst
+- [x] Options Market Analyst
 
 ### Decision Layer
 - [ ] Portfolio Manager

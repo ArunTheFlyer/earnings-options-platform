@@ -383,3 +383,20 @@ Dispositions: all three drafting choices accepted (work-with-what-is-delivered; 
 ### Next Actions
 
 - Reviewer diff confirmation → check the three analyst rows as passed.
+
+## Review Session (addendum)
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session)
+Target Files: agents/market-regime-analyst.md, agents/technical-analyst.md, agents/options-market-analyst.md (commit 5528436, A1-A4 diff confirmation)
+Status: Completed — all three PASSED
+
+### Decisions Made
+
+- Dashboard: three analyst prompt rows checked as PASSED 2026-07-17; ROADMAP.md Phase 1 rows updated (five of seven agents complete).
+- Platform state: every defined agent from pipeline entry through the Strategy Peer Reviewer has a passed design lineage and a passed prompt.
+- Remaining gaps per reviewer: (1) strategies/ content — the largest functional gap, both decision prompts bind to an empty directory (Phase 3 opening, owner's call); (2) PM/TEM specs then prompts — PM spec must incorporate the binding-to-acknowledge obligation and declared-external-state snapshot rules; (3) Phase 2 documentation reviews and pending Design & Contracts rows.
+
+### Next Actions
+
+- Owner sequencing call.
