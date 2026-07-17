@@ -20,15 +20,15 @@ Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-exampl
 
 ## Cost — What You Actually Pay
 
-**This platform itself is free and open source — $0.** There is no license fee, no subscription, no hidden charge, and no hosted service to sign up for.
+**This platform is free for early adopters.** There is no license fee, no subscription, and no hidden charge today. This is an early-access period — the project may introduce pricing for the platform itself in the future; early adopters get free access now, ahead of any future change. Nothing about this repository requires payment to use it as-is.
 
-The only real cost is **your own Claude Code usage**, because each run has you invoking Claude Code to execute five agents:
+Separately, regardless of pricing changes here, you always need **your own Claude Code usage**, because each run has you invoking Claude Code to execute five agents:
 
 - You need an **active Claude Code subscription/usage plan** (see [claude.com/claude-code](https://claude.com/claude-code) for current plans and pricing) — this is a cost you already have or would pay Anthropic directly for using Claude Code at all, not a fee to this platform.
 - Each pipeline run consumes your own usage/tokens under that plan, the same as any other Claude Code session you run.
 - **Optional add-ons cost extra, only if you choose them.** Nothing in the platform requires them — see "Built-In vs. Add-On Capabilities" below.
 
-**Nothing else.** No data fees (Yahoo Finance is free), no broker integration fee, no per-run charge from this project. Your money only ever leaves your account when *you* place a trade at your own broker.
+No data fees (Yahoo Finance is free), no broker integration fee, no per-run charge from this project. Your money only ever leaves your account when *you* place a trade at your own broker.
 
 ## What a Run Does
 
