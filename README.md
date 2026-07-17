@@ -18,31 +18,6 @@ Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-exampl
 
 > **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
 
-## Getting Updates
-
-This platform ships new versions (new agent capabilities, strategy fixes, doc improvements) directly to this GitHub repository. **Updates are not automatic** — you pull them yourself, whenever you want the latest version:
-
-```
-cd earnings-options-platform
-git pull
-```
-
-That's it — no reinstall, no separate updater. Your private files (`runs/`, `agent-data-source/`, any personal `policy/` draft) are gitignored and untouched by an update; only the platform's own files change.
-
-**Check what's new:** [ROADMAP.md](ROADMAP.md) tracks current status and milestones; `git log --oneline -10` shows the most recent changes directly.
-
-## Cost — What You Actually Pay
-
-**This platform is free for early adopters.** There is no license fee, no subscription, and no hidden charge today. This is an early-access period — the project may introduce pricing for the platform itself in the future; early adopters get free access now, ahead of any future change. Nothing about this repository requires payment to use it as-is.
-
-Separately, regardless of pricing changes here, you always need **your own Claude Code usage**, because each run has you invoking Claude Code to execute five agents:
-
-- You need an **active Claude Code subscription/usage plan** (see [claude.com/claude-code](https://claude.com/claude-code) for current plans and pricing) — this is a cost you already have or would pay Anthropic directly for using Claude Code at all, not a fee to this platform.
-- Each pipeline run consumes your own usage/tokens under that plan, the same as any other Claude Code session you run.
-- **Optional add-ons cost extra, only if you choose them.** Nothing in the platform requires them — see "Built-In vs. Add-On Capabilities" below.
-
-No data fees (Yahoo Finance is free), no broker integration fee, no per-run charge from this project. Your money only ever leaves your account when *you* place a trade at your own broker.
-
 ## What a Run Does
 
 One run takes one ticker through five AI agents, in order:
@@ -73,12 +48,6 @@ Execution (placing orders with your broker) is also yours — manually, or with 
 
 Every run writes its full record to `runs/<date>-<ticker>/` — data snapshots, every agent's artifact, the reviewer's verdict, and your decision. **This folder is gitignored: your trading record stays on your machine** and is never pushed to GitHub.
 
-## Customizing (Advanced)
-
-- **Strategies:** the pipeline only recommends strategies defined in `strategies/` (max five, defined-risk only). Add your own from `strategies/strategy-template.md` — but note the governance rule: a strategy definition should be reviewed before you trust runs against it.
-- **Regime taxonomy:** the market classifications live in `docs/contracts/regime-taxonomy.md`.
-- **How it all works:** [docs/architecture.md](docs/architecture.md) (why), [docs/workflow.md](docs/workflow.md) (the pipeline), `docs/design/` (each agent's specification), `docs/review/` (how every piece was reviewed and decided).
-
 ## Troubleshooting
 
 | Symptom | Meaning |
@@ -88,16 +57,50 @@ Every run writes its full record to `runs/<date>-<ticker>/` — data snapshots, 
 | Reviewer REJECTED a proposal | Working as designed — read the defect categories before considering a rerun. |
 | Everything is NO TRADE | Also working as designed. The pipeline is a filter; most earnings events don't deserve a trade. |
 
+## Cost — What You Actually Pay
+
+**This platform is free for early adopters.** There is no license fee, no subscription, and no hidden charge today. This is an early-access period — the project may introduce pricing for the platform itself in the future; early adopters get free access now, ahead of any future change. Nothing about this repository requires payment to use it as-is.
+
+Separately, regardless of pricing changes here, you always need **your own Claude Code usage**, because each run has you invoking Claude Code to execute five agents:
+
+- You need an **active Claude Code subscription/usage plan** (see [claude.com/claude-code](https://claude.com/claude-code) for current plans and pricing) — this is a cost you already have or would pay Anthropic directly for using Claude Code at all, not a fee to this platform.
+- Each pipeline run consumes your own usage/tokens under that plan, the same as any other Claude Code session you run.
+- **Optional add-ons cost extra, only if you choose them.** Nothing in the platform requires them — see "Built-In vs. Add-On Capabilities" below.
+
+No data fees (Yahoo Finance is free), no broker integration fee, no per-run charge from this project. Your money only ever leaves your account when *you* place a trade at your own broker.
+
 ## Built-In vs. Add-On Capabilities
 
 Everything this platform needs ships in this repository and runs on Claude Code's **built-in capabilities** — web fetch/search for market data (Yahoo Finance), file access, and the packaged `/run-pipeline` skill. Clone and run; no keys, no installs.
 
 **Optional add-ons are controlled by your environment, not this repo.** You may equip your own Claude Code session with additional tools — e.g., an MCP server such as Tavily (better search) or a market-data server (structured options chains). These are yours to install, configure, and pay for (API keys live in your environment, never in this repository). The pipeline works without them; when present, the orchestrator can use them to build higher-quality context for the agents. The agents themselves never use tools — they only read what the orchestrator delivers.
 
+## Getting Updates
+
+This platform ships new versions (new agent capabilities, strategy fixes, doc improvements) directly to this GitHub repository. **Updates are not automatic** — you pull them yourself, whenever you want the latest version:
+
+```
+cd earnings-options-platform
+git pull
+```
+
+That's it — no reinstall, no separate updater. Your private files (`runs/`, `agent-data-source/`, any personal `policy/` draft) are gitignored and untouched by an update; only the platform's own files change.
+
+**Check what's new:** [ROADMAP.md](ROADMAP.md) tracks current status and milestones; `git log --oneline -10` shows the most recent changes directly.
+
+## Customizing (Advanced)
+
+- **Strategies:** the pipeline only recommends strategies defined in `strategies/` (max five, defined-risk only). Add your own from `strategies/strategy-template.md` — but note the governance rule: a strategy definition should be reviewed before you trust runs against it.
+- **Regime taxonomy:** the market classifications live in `docs/contracts/regime-taxonomy.md`.
+- **How it all works:** [docs/architecture.md](docs/architecture.md) (why), [docs/workflow.md](docs/workflow.md) (the pipeline), `docs/design/` (each agent's specification), `docs/review/` (how every piece was reviewed and decided).
+
+---
+
+*Everything below explains how and why the platform is built — useful if you want a deeper understanding, or if you're an AI agent reading this repository.*
+
 ## Purpose
 
 Trading options around earnings requires synthesizing several distinct kinds of analysis — market conditions, price action, options pricing, strategy design, risk review, and portfolio fit. Doing all of this in a single prompt produces opaque, unrepeatable decisions.
-
 
 ## High-Level Architecture
 
