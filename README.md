@@ -1,3 +1,4 @@
+# Earnings Options Platform
 
 A multi-agent AI platform for researching, evaluating, and managing options trades around earnings events.
 
