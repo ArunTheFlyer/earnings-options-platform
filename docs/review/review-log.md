@@ -327,3 +327,21 @@ Status: Spec PASSED; realigned prompt submitted for review
 ### Next Actions
 
 - Reviewer: section-11-deltas acceptance check, then full 12-dimension review of the realigned prompt.
+
+## Review Session (addendum)
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session)
+Target File: agents/earnings-options-strategist.md (commit 83fba1a; section-11 acceptance check + full 12-dimension review)
+Status: Completed — PASSED. Review finding F6 closed (last open finding from the reviewer's pre-engagement ledger).
+
+### Decisions Made
+
+- All eight section-11 deltas verified present; realignment confirmed surgical (previously passed sections carry their review history forward).
+- Philosophy trim accepted as trimmed (fundamentals/analyst-opinion references removed as inputs no contract delivers; the market-context sentence retained).
+- Dashboard updated: Earnings Options Strategist checked as PASSED 2026-07-17.
+- Platform state: both decision agents (Strategist, Peer Reviewer) now have passed specs and passed prompts. Reviewer's suggested backlog order: (1) analyst prompts, (2) strategies/ content (Phase 3 opening — owner decision), (3) PM/TEM design specs, (4) Phase 2 documentation reviews.
+
+### Next Actions
+
+- Owner sequencing call on the backlog order.

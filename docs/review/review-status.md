@@ -5,7 +5,7 @@ _Last updated: 2026-07-17_
 
 ## Core Agents
 
-- [ ] Earnings Options Strategist — passed 2026-07-16, returned to pending 2026-07-17: contracts changed underneath it (ADR-002/003/004); prompt still consumes "written assessments" and lacks a Structured Decision Contract shape. Realignment due with the Strategist design specification (peer-review finding F6).
+- [x] Earnings Options Strategist — realigned per F6 against the passed design spec; section-11 acceptance check + full 12-dimension review PASSED 2026-07-17 (see review-log.md)
 - [x] Strategy Peer Reviewer — prompt authored against passed design spec; full 12-dimension review PASSED 2026-07-17 (see review-log.md)
 
 ## Supporting Analysts
