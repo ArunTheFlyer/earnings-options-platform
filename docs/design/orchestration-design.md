@@ -1,4 +1,3 @@
-# Orchestration Design (Phase 4)
 
 How a pipeline run actually executes for the MVP. Derived from the workflow, the contracts, and the owner's Phase 4 rulings (2026-07-17). Where this document is silent, the agent specifications and contracts govern.
 
@@ -7,6 +6,25 @@ How a pipeline run actually executes for the MVP. Derived from the workflow, the
 **The orchestrator is a Claude Code session** operated by the owner. A run is triggered by the owner naming a candidate ("run the pipeline on XYZ"). The session then executes each agent as an isolated subagent, in workflow order, enforcing the hand-off rules below. No standing scheduler exists in the MVP; runs are on-demand.
 
 The owner performs the portfolio stage manually (ADR-005) between the Peer Reviewer's verdict and any execution. The Trade Execution Manager agent is available per trade at the owner's choice; execution may also be fully manual.
+
+## 1a. Run Trigger
+
+A run starts with the owner's trigger, carrying at most four fields:
+
+```
+RUN PIPELINE
+Ticker:        <symbol>                  (required)
+Earnings:      <date + session AMC/BMO>  (optional — if omitted, the orchestrator fetches it)
+Owner note:    <free text>               (optional — recorded in the run record; NEVER shown to any agent)
+Data files:    <paths in agent-data-source/> (optional — owner-supplied data declared up front)
+```
+
+Rules:
+
+- Casual phrasing ("run the pipeline on AVGO, earnings Jul-29 after close") is equivalent; the template defines what information may enter a run and where it may flow, not a required syntax.
+- **Earnings date is always echoed back for owner confirmation before any agent runs** — whether supplied or fetched. The date and session determine leg selection downstream; a wrong date corrupts the run.
+- The owner note is record-only: it is written to the run record and never delivered to any agent, so owner context cannot contaminate the evidence chain.
+- **One ticker per run.** Multiple candidates mean multiple runs, each with its own run record.
 
 ## 2. Agent Execution
 
