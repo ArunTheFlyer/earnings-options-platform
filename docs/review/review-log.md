@@ -400,3 +400,20 @@ Status: Completed — all three PASSED
 ### Next Actions
 
 - Owner sequencing call.
+
+## Design Session
+
+Date: 2026-07-17
+Reviewer: n/a — authoring session (specs submitted for review)
+Target Files: docs/design/portfolio-manager-design.md, docs/design/trade-execution-manager-design.md (created)
+Status: Completed — both decision-layer specs authored; submitted for batched review
+
+### Decisions Made
+
+- Owner sequencing ruling: PM/TEM design specs before strategies/ content and Phase 2 doc reviews.
+- PM spec wires in the two obligations decision-layer.md flags: binding-to-acknowledge (Observation Dispositions as a first-class field) and the portfolio-state snapshot rules (class 3). Chain-reachability honored: no direct analyst consumption. Decision vocabulary ACCEPTED/DECLINED. ODQ: where portfolio policy (risk budget, sizing method) lives — blocks prompt authoring.
+- TEM spec: execution-only framing (HALT = feasibility, never merit; no route back upstream); Execution Plan + lifecycle records as ADR-004-shaped artifacts; market/order state as class-3 snapshots; conservative-reading rule for constraint ambiguity. ODQs: lifecycle vocabulary contract-weight, market/order data contract, Phase 5 broker transport, post-trade review consumer.
+
+### Next Actions
+
+- Batched review of both specs; on pass, ODQ rulings (esp. PM portfolio policy) before prompt authoring.
