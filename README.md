@@ -60,11 +60,18 @@ Each stage consumes the outputs of the stages before it. No stage skips ahead, a
 ```
 .
 ├── README.md
-├── agents/       # Agent prompt definitions (one file per agent)
-├── docs/         # Architecture, workflow, principles, glossary
-│   └── review/   # Review methodology, status dashboard, review log, ADRs
-├── strategies/   # Strategy documents (future)
-└── examples/     # Worked examples and sample runs (future)
+├── ROADMAP.md            # Phase/milestone status
+├── agents/               # Agent prompt definitions (one file per agent)
+├── docs/
+│   ├── architecture.md, workflow.md, design-principles.md, glossary.md, user-guide.md
+│   ├── contracts/        # Output/handoff/decision contracts, regime taxonomy
+│   ├── design/           # Agent design specifications + orchestration design
+│   └── review/           # Review methodology, dashboard, log, ADRs
+├── strategies/           # Approved strategy definitions + template (max 5, defined-risk)
+├── policy/               # Portfolio policy template (PM agent release candidate)
+├── examples/             # Run trigger examples
+├── agent-data-source/    # Your data files when asked (gitignored)
+└── runs/                 # Your run records (gitignored — local only)
 ```
 
 ## Governance
@@ -84,7 +91,7 @@ The full set of principles lives in [docs/design-principles.md](docs/design-prin
 
 ## Development Roadmap
 
-See [ROADMAP.md](ROADMAP.md) for the phased project roadmap. Current state: Phase 0 (Repository Foundation) is complete; Phase 1 (Agent Design Review) is in progress.
+See [ROADMAP.md](ROADMAP.md) for the phased project roadmap. Current state: Phases 0-1 and 3 complete; Phase 2 (documentation review) deferred post-MVP; Phase 4 (orchestration) in progress toward the first live run.
 
 ## Future Expansion
 
