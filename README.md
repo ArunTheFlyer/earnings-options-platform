@@ -36,9 +36,9 @@ Earnings Options Strategist — what trade structure fits the evidence?
    ↓
 Strategy Peer Reviewer     — does the proposal survive scrutiny?
    ↓
-Portfolio Manager          — does it fit the portfolio and risk budget?
+Portfolio Manager (YOU)    — does it fit the portfolio? (manual decision; agent is a release candidate)
    ↓
-Trade Execution Manager    — how is the approved trade placed and managed?
+Trade Execution Manager    — how is the approved trade placed and managed? (optional per trade)
 ```
 
 Each stage consumes the outputs of the stages before it. No stage skips ahead, and no stage revisits a decision that belongs to another stage. See [docs/architecture.md](docs/architecture.md) and [docs/workflow.md](docs/workflow.md) for details.
@@ -52,7 +52,7 @@ Each stage consumes the outputs of the stages before it. No stage skips ahead, a
 | [Options Market Analyst](agents/options-market-analyst.md) | Assesses options pricing, implied volatility, and the expected move around earnings. |
 | [Earnings Options Strategist](agents/earnings-options-strategist.md) | Designs a trade structure (or recommends no trade) based on the analysts' evidence. |
 | [Strategy Peer Reviewer](agents/strategy-peer-reviewer.md) | Independently challenges the strategist's proposal before it can advance. |
-| [Portfolio Manager](agents/portfolio-manager.md) | Decides whether an approved strategy fits portfolio-level risk and allocation. |
+| Portfolio Manager | **Feature release candidate** — currently performed manually by the user (ADR-005). The reviewed design spec ([docs/design/portfolio-manager-design.md](docs/design/portfolio-manager-design.md)) is the blueprint for a future release. |
 | [Trade Execution Manager](agents/trade-execution-manager.md) | Handles order placement and lifecycle management of accepted trades. |
 
 ## Repository Structure
@@ -87,6 +87,12 @@ The full set of principles lives in [docs/design-principles.md](docs/design-prin
 See [ROADMAP.md](ROADMAP.md) for the phased project roadmap. Current state: Phase 0 (Repository Foundation) is complete; Phase 1 (Agent Design Review) is in progress.
 
 ## Future Expansion
+
+**Feature release candidates** (designed and/or planned, not in the current release):
+
+- Portfolio Manager agent — automated portfolio-fit decisions and sizing (passed design spec exists; currently a manual user step per ADR-005)
+- Earnings History Analyst — historical earnings reactions, realized-vs-implied volatility, post-earnings IV crush (OAQ-1)
+- Portfolio policy artifact (`policy/`) — versioned risk-budget and sizing rules feeding the PM agent
 
 Areas under consideration, not yet committed:
 
