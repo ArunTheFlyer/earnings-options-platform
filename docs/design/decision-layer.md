@@ -133,4 +133,6 @@ For **REJECTED**, the reviewer must identify one or more of the following catego
 - Strategy-selection error
 - Contract violation
 
+The canonical definitions of these categories, and the contractual semantics of APPROVED WITH OBSERVATIONS, are owned by the [Strategy Peer Reviewer design specification](strategy-peer-reviewer-design.md); this document references them.
+
 Remediation workflows, scoring, and voting are deliberately not defined here.
