@@ -208,3 +208,28 @@ Governance: G1 spec missing from dashboard and log.
 ### Next Actions
 
 - Reviewer re-review of the amended specification; on pass, Strategy Peer Reviewer prompt authoring can begin.
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session)
+Target File: docs/design/strategy-peer-reviewer-design.md (commit e4c4488, re-review)
+Status: Completed — PASSED (clean re-review; all seven prior findings verified resolved)
+
+### Findings
+
+None blocking. Minor notes (folded into this session's bookkeeping): workflow.md preamble still described pre-D4 routing; glossary "Recommendation"/"No Trade" entries predated the three-outcome model and D4; dashboard row needed pass status.
+
+### Decisions Made
+
+- Specification passes; review-status.md updated to PASSED 2026-07-17.
+- Minor notes 1-3 applied (workflow preamble clause, glossary entries updated, dashboard row).
+- Prompt authoring authorized and performed: agents/strategy-peer-reviewer.md authored strictly against the specification, implementing the reviewer's two sequencing cautions — reconstruction-first ordering stated as the explicit independence mechanism in the Thinking Process, and audit-only non-trade semantics placed in the output instructions.
+
+### Open Questions
+
+- None new.
+
+### Next Actions
+
+- Submit agents/strategy-peer-reviewer.md for full 12-dimension checklist review against the specification.

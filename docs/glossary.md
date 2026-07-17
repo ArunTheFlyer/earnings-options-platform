@@ -12,9 +12,9 @@ Project terminology, defined in plain business language. Use these terms consist
 
 **Approved Strategy** — A proposal that has survived peer review. Only approved strategies reach the Portfolio Manager; approval does not guarantee acceptance.
 
-**Recommendation** — The strategist's output for a candidate: either a fully specified strategy proposal with its supporting evidence, or a "no trade" conclusion.
+**Recommendation** — The strategist's output for a candidate: a fully specified strategy proposal with its supporting evidence, a "no trade" conclusion, or an "insufficient evidence" outcome.
 
-**No Trade** — A first-class outcome in which the pipeline concludes the candidate does not merit a position. Not a failure of the process, but the process working as a filter.
+**No Trade** — A first-class outcome in which the strategist concludes the candidate does not merit a position; peer-reviewed on an audit basis before the candidate’s run ends. Not a failure of the process, but the process working as a filter.
 
 **Watchlist** — The trader's curated list of candidate symbols and their upcoming earnings events; the entry point of the pipeline.
 

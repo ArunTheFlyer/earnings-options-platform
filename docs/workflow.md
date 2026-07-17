@@ -20,7 +20,7 @@ Portfolio Manager
 Trade Execution Manager
 ```
 
-A rejection or "no trade" conclusion at any stage ends the pipeline for that candidate.
+A rejection or non-trade outcome ends the pipeline for that candidate — non-trade outcomes after their audit review, per step 6.
 
 ---
 
