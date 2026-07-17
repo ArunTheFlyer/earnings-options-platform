@@ -1,10 +1,10 @@
 # Project Roadmap
 
-**Current Phase:** Phase 1 — Agent Design Review
+**Current Phase:** Phase 4 — Orchestration
 
-**Current Target:** none pending — Phase 1 complete for the in-scope agent set (PM descoped per ADR-005)
+**Current Target:** orchestration design (how a pipeline run actually executes)
 
-**Next Milestone:** first live pipeline run (orchestration/Phase 4) or Phase 2 documentation reviews — owner's call
+**Next Milestone:** first live end-to-end pipeline run (MVP)
 
 ---
 
@@ -46,7 +46,7 @@ Status: ✅ Complete
 ---
 
 ## Phase 2 — Documentation Review
-Status: Not Started
+Status: ⏭ Deferred post-MVP (owner decision 2026-07-17) — non-blocking; foundation docs remain unreviewed engineering record
 
 - [ ] Architecture
 - [ ] Workflow
@@ -58,18 +58,21 @@ Status: Not Started
 
 ## Phase 3 — Strategy Framework
 
-Status: 🚧 In Progress
+Status: ✅ Complete (2026-07-17)
 
 - [x] Strategy definition template (strategies/strategy-template.md)
 - [x] First strategy approved: pmcc-calendar-overlay (2026-07-17)
 - [x] Owner decision: single-strategy universe for now (4 slots are headroom, not backlog)
-- [ ] Portfolio policy (policy/) — paused per ADR-005 (PM descoped)
+- [x] Portfolio policy (policy/) — not required: PM descoped per ADR-005; policy is the owner's manual judgment
 
 ---
 
 ## Phase 4 — Orchestration
 
-Status: Not Started
+Status: 🚧 In Progress (started 2026-07-17)
+
+- [ ] Orchestration design (run model, data sourcing, artifact hand-offs, reference-artifact delivery registry per OAQ-2)
+- [ ] First live end-to-end pipeline run (MVP)
 
 ---
 
