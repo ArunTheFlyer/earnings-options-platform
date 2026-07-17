@@ -18,54 +18,44 @@ Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-exampl
 
 > **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
 
-## What a Run Does
+## What You Get
 
-One run takes one ticker through five AI agents, in order:
+Every run ends with one of three outcomes:
 
-1. **Market Regime Analyst** — classifies the current market environment (from a fixed taxonomy).
-2. **Technical Analyst** — reads the stock's trend, key levels, and price structure into earnings.
-3. **Options Market Analyst** — reads the options market: expected move, IV, liquidity.
-4. **Earnings Options Strategist** — recommends ONE approved strategy, or NO TRADE, or INSUFFICIENT EVIDENCE.
-5. **Strategy Peer Reviewer** — independently challenges the recommendation before you ever see it as actionable: APPROVED / APPROVED WITH OBSERVATIONS / REJECTED.
+- ✅ **A recommended trade** — the exact setup (strikes, expirations, cost, maximum loss, entry conditions, exit plan), already challenged by an independent AI review before you ever see it. Sometimes it comes with a few flagged observations worth a second look.
+- 🚫 **"No trade"** — the honest answer when nothing worth doing exists this time. This is the system working correctly, not failing.
+- ❓ **"Not enough information"** — rare; the available data couldn't support a confident conclusion.
 
-Then **you** decide: trade or not, and how big. The pipeline never touches your money.
+Along the way, it may pause once to confirm the earnings date, or ask you to drop in a data file if something couldn't be found automatically — just answer and it continues.
 
-**Starting a run:** two equivalent options — natural language (Claude Code auto-loads `CLAUDE.md`, which teaches the full orchestration procedure) or the packaged skill (`/run-pipeline <TICKER>`); both follow the same governed procedure (`docs/design/orchestration-design.md`). **The orchestrator always echoes the earnings date and session back to you and waits for confirmation** before running anything — check it; a wrong date corrupts the whole run.
+**You always make the final call.** The pipeline never places a trade, sizes a position, or touches your money — it hands you a fully reasoned recommendation (or an honest "no"), and the decision is yours.
 
-**During the run:** market data is fetched automatically from free public sources (Yahoo Finance). If something isn't available or good enough, the run **pauses and tells you exactly what's missing** — drop the requested file into `agent-data-source/` and say so; the run resumes. Nothing is ever guessed. The agents hand structured artifacts down the chain; the reviewer independently re-derives the reasoning before it's allowed to see the strategist's answer.
+## Your Decision
 
-**Reading the result:**
+If a trade was recommended: decide **whether** to take it and **how many contracts**, based on your own account and risk tolerance. The recommendation tells you the cost and maximum loss per contract — weigh that against what you're willing to risk. Tell it your decision and it's saved for your records.
 
-- **APPROVED / APPROVED WITH OBSERVATIONS** — a fully specified trade (strategy, strikes, expirations, per-unit cost and max loss, entry conditions, exit plan) that survived adversarial review. Observations are concerns worth your attention that weren't severe enough to reject.
-- **REJECTED** — the recommendation didn't survive scrutiny; the defect categories tell you why.
-- **NO TRADE / INSUFFICIENT EVIDENCE** — the strategist declined to recommend; the reviewer audited that reasoning too. This is the system working, not failing.
+Placing the order with your broker, and managing the exit, is also up to you — the recommendation includes an exit plan to follow if you take the trade.
 
-## Your Decision (the Human Step)
-
-If a trade was approved: decide **whether** to take it and **how many units**, against your own account and risk tolerance. The strategist's artifact gives you the per-unit cost and maximum loss — the arithmetic is `units × max loss per unit` against whatever you're willing to risk. Tell the orchestrator your decision; it's recorded in the run record.
-
-Execution (placing orders with your broker) is also yours — manually, or with the Trade Execution Manager agent's order plan as a checklist. If you take the trade, the strategy's exit plan is the plan; follow it.
-
-Every run writes its full record to `runs/<date>-<ticker>/` — data snapshots, every agent's artifact, the reviewer's verdict, and your decision. **This folder is gitignored: your trading record stays on your machine** and is never pushed to GitHub.
+Every run's full history is saved on your computer only (never uploaded) — you can always look back at what was recommended and why.
 
 ## Troubleshooting
 
 | Symptom | Meaning |
 |---|---|
-| Run ends with INSUFFICIENT EVIDENCE | Upstream data couldn't support a conclusion — check the Missing Evidence field; supply better data and rerun if you can. |
-| Run pauses asking for data | Yahoo couldn't provide something; the message names the exact file to drop in `agent-data-source/`. |
-| Reviewer REJECTED a proposal | Working as designed — read the defect categories before considering a rerun. |
-| Everything is NO TRADE | Also working as designed. The pipeline is a filter; most earnings events don't deserve a trade. |
+| It says "not enough information" | The available data wasn't good enough to trust — try supplying better data if you have it, and rerun. |
+| It pauses and asks for a data file | It couldn't find something reliable online; drop the requested file into `agent-data-source/` and it will continue. |
+| The recommendation gets flagged/rejected on review | Working as designed — read why before considering it further. |
+| It keeps saying "no trade" | Also working as designed. Most earnings events genuinely aren't worth a trade — this is the tool being honest, not broken. |
 
 ## Cost — What You Actually Pay
 
 **This platform is free for early adopters.** There is no license fee, no subscription, and no hidden charge today. This is an early-access period — the project may introduce pricing for the platform itself in the future; early adopters get free access now, ahead of any future change. Nothing about this repository requires payment to use it as-is.
 
-Separately, regardless of pricing changes here, you always need **your own Claude Code usage**, because each run has you invoking Claude Code to execute five agents:
+Separately, regardless of pricing changes here, you always need **your own Claude Code usage** to run it at all:
 
 - You need an **active Claude Code subscription/usage plan** (see [claude.com/claude-code](https://claude.com/claude-code) for current plans and pricing) — this is a cost you already have or would pay Anthropic directly for using Claude Code at all, not a fee to this platform.
-- Each pipeline run consumes your own usage/tokens under that plan, the same as any other Claude Code session you run.
-- **Optional add-ons cost extra, only if you choose them.** Nothing in the platform requires them — see "Built-In vs. Add-On Capabilities" below.
+- Each run uses your own usage/tokens under that plan, the same as any other Claude Code session you run.
+- **Optional add-ons cost extra, only if you choose them.** Nothing here requires them — see "Built-In vs. Add-On Capabilities" below.
 
 No data fees (Yahoo Finance is free), no broker integration fee, no per-run charge from this project. Your money only ever leaves your account when *you* place a trade at your own broker.
 
