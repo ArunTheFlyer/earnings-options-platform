@@ -6,10 +6,13 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 
 1. Install [Claude Code](https://claude.com/claude-code) and clone this repository.
 2. Open the repo folder in Claude Code.
-3. Type: `Run the pipeline on <TICKER>. Earnings <date> <AMC|BMO>.` — or use the packaged skill: `/run-pipeline <TICKER>`. (Pick a stock with earnings ~10 days out.)
+3. Start a run — natural language or the packaged skill, your choice:
+   - `Run the pipeline on <TICKER>. Earnings <date> <AMC|BMO>.`
+   - `/run-pipeline <TICKER>`
+
+   **Required:** the ticker only (one per run; pick a stock with earnings ~10 days out). **Optional:** the earnings date + session (fetched for you if omitted), a private note for your records, and pre-supplied data files. All forms: [examples/run-trigger-examples.md](examples/run-trigger-examples.md).
 4. Confirm the earnings date when echoed back; supply data files in `agent-data-source/` if asked.
 5. The run ends with a verdict: a recommended trade that survived independent AI peer review (with strikes, expirations, cost, and exit plan) — or a reasoned "no trade."
-6. The rest is yours: decide IF you take the trade and HOW MANY contracts, and place the order at your broker yourself. The pipeline analyzes; it never trades or touches your account.
 
 Full walkthrough: **[docs/user-guide.md](docs/user-guide.md)** · Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-examples.md)
 
