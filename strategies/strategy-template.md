@@ -1,4 +1,3 @@
-# Strategy Definition Template
 
 _Template only — not an approved strategy. Copy to `strategies/<strategy-name>.md`, fill every section, and submit for review. A strategy is approved only after passing review (Repository Rule). The universe is capped at five strategies (decision-layer.md §3); all must be defined-risk._
 
