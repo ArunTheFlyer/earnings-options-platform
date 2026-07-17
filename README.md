@@ -1,4 +1,3 @@
-# Earnings Options Platform
 
 A multi-agent AI platform for researching, evaluating, and managing options trades around earnings events.
 
@@ -17,6 +16,12 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 Full walkthrough: **[docs/user-guide.md](docs/user-guide.md)** · Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-examples.md)
 
 > **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
+
+## Built-In vs. Add-On Capabilities
+
+Everything this platform needs ships in this repository and runs on Claude Code's **built-in capabilities** — web fetch/search for market data (Yahoo Finance), file access, and the packaged `/run-pipeline` skill. Clone and run; no keys, no installs.
+
+**Optional add-ons are controlled by your environment, not this repo.** You may equip your own Claude Code session with additional tools — e.g., an MCP server such as Tavily (better search) or a market-data server (structured options chains). These are yours to install, configure, and pay for (API keys live in your environment, never in this repository). The pipeline works without them; when present, the orchestrator can use them to build higher-quality context for the agents. The agents themselves never use tools — they only read what the orchestrator delivers.
 
 ## Purpose
 
