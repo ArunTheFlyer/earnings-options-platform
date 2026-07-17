@@ -6,7 +6,6 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 
 Trading options around earnings requires synthesizing several distinct kinds of analysis — market conditions, price action, options pricing, strategy design, risk review, and portfolio fit. Doing all of this in a single prompt produces opaque, unrepeatable decisions.
 
-This project decomposes the problem into a pipeline of specialized AI agents, each with a single responsibility and a well-defined contract with its neighbors. The result is a decision process that is explainable, auditable, and maintainable.
 
 ## High-Level Architecture
 
@@ -51,9 +50,16 @@ Each stage consumes the outputs of the stages before it. No stage skips ahead, a
 ├── README.md
 ├── agents/       # Agent prompt definitions (one file per agent)
 ├── docs/         # Architecture, workflow, principles, glossary
+│   └── review/   # Review methodology, status dashboard, review log, ADRs
 ├── strategies/   # Strategy documents (future)
 └── examples/     # Worked examples and sample runs (future)
 ```
+
+## Governance
+
+All architecture and agent reviews follow the formal process in [docs/review/review-plan.md](docs/review/review-plan.md), with progress tracked in the [review status dashboard](docs/review/review-status.md), sessions journaled in the [review log](docs/review/review-log.md), and significant decisions recorded as [Architecture Decision Records](docs/review/architecture-decisions.md).
+
+> **Repository Rule:** No agent prompt may be considered complete until it has successfully passed the review checklist. Likewise, documentation is not complete until it has been reviewed against the architecture.
 
 ## Philosophy
 
