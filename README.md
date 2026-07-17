@@ -8,7 +8,7 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 2. Open the repo folder in Claude Code.
 3. Start a run — natural language or the packaged skill, your choice:
    - `Run the pipeline on <TICKER>. Earnings <date> <AMC|BMO>.`
-   - `/run-pipeline <TICKER>`
+   - `/analyze-earnings-trade <TICKER>`
 
    **Required:** the ticker only (one per run; pick a stock with earnings ~10 days out). **Optional:** the earnings date and session — AMC = after market close, BMO = before market open (fetched for you if omitted), a private note for your records, and pre-supplied data files. All forms: [examples/run-trigger-examples.md](examples/run-trigger-examples.md).
 4. Confirm the earnings date when echoed back; supply data files in `agent-data-source/` if asked.
@@ -61,7 +61,7 @@ No data fees (Yahoo Finance is free), no broker integration fee, no per-run char
 
 ## Built-In vs. Add-On Capabilities
 
-Everything this platform needs ships in this repository and runs on Claude Code's **built-in capabilities** — web fetch/search for market data (Yahoo Finance), file access, and the packaged `/run-pipeline` skill. Clone and run; no keys, no installs.
+Everything this platform needs ships in this repository and runs on Claude Code's **built-in capabilities** — web fetch/search for market data (Yahoo Finance), file access, and the packaged `/analyze-earnings-trade` skill. Clone and run; no keys, no installs.
 
 **Optional add-ons are controlled by your environment, not this repo.** You may equip your own Claude Code session with additional tools — e.g., an MCP server such as Tavily (better search) or a market-data server (structured options chains). These are yours to install, configure, and pay for (API keys live in your environment, never in this repository). The pipeline works without them; when present, the orchestrator can use them to build higher-quality context for the agents. The agents themselves never use tools — they only read what the orchestrator delivers.
 

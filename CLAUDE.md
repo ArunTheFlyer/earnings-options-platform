@@ -13,7 +13,7 @@ This repository is a multi-agent pipeline for analyzing options trades around ea
 7. The **user is the Portfolio Manager** (ADR-005): after the review verdict, they decide whether to trade and how many units. Record their decision; never decide for them. The user's "Owner note" in a trigger is record-only — never show it to any agent.
 8. A REJECTED verdict or non-trade outcome ends the run; record it. Never repair an agent's output — a contract violation aborts the run, recorded.
 
-Alternatively, the user may invoke the packaged skill: `/run-pipeline <TICKER> [earnings date]` — same procedure, same rules.
+Alternatively, the user may invoke the packaged skill: `/analyze-earnings-trade <TICKER> [earnings date]` — same procedure, same rules.
 
 ## Repo conventions
 

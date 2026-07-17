@@ -1,6 +1,6 @@
 ---
-name: run-pipeline
-description: Run the earnings options pipeline on one ticker — five agents in sequence (regime, technical, options, strategist, peer reviewer) with structured hand-offs, Yahoo Finance data, and a local run record. Invoke when the user says "run the pipeline on <TICKER>", "/run-pipeline <TICKER>", or any request to analyze a stock's upcoming earnings through the platform.
+name: analyze-earnings-trade
+description: Run the earnings options pipeline on one ticker — five agents in sequence (regime, technical, options, strategist, peer reviewer) with structured hand-offs, Yahoo Finance data, and a local run record. Invoke when the user says "run the pipeline on <TICKER>", "/analyze-earnings-trade <TICKER>", or any request to analyze a stock's upcoming earnings through the platform.
 ---
 
 # Run Pipeline

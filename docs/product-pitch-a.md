@@ -15,7 +15,7 @@ Each segment is documented in the same four fields: **Wants** (what they need fr
 Power users who run the pipeline themselves (via Claude Code) and either trade on the output personally or forward the reviewed recommendation to a downstream audience who never touches the tool.
 
 - **Wants:** run the pipeline, get a peer-reviewed recommendation, share or act on it.
-- **Served today:** fully. README quick start, user guide, both trigger forms (natural language + `/run-pipeline` skill), orchestration design, `pmcc-calendar-overlay` as the default strategy.
+- **Served today:** fully. README quick start, user guide, both trigger forms (natural language + `/analyze-earnings-trade` skill), orchestration design, `pmcc-calendar-overlay` as the default strategy.
 - **Gap:** none. This segment is the platform's current shape.
 - **Notes:** how Segment 1 shares or publishes recommendations to their own downstream audience is assumed to be their own independent publishing model (WhatsApp, newsletter, website, etc.) — **explicitly out of scope for this platform.** The platform's responsibility ends at producing the reviewed recommendation artifact; distribution to Segment 1's own audience is theirs to build and operate.
 
