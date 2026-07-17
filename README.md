@@ -18,6 +18,19 @@ Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-exampl
 
 > **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
 
+## Getting Updates
+
+This platform ships new versions (new agent capabilities, strategy fixes, doc improvements) directly to this GitHub repository. **Updates are not automatic** — you pull them yourself, whenever you want the latest version:
+
+```
+cd earnings-options-platform
+git pull
+```
+
+That's it — no reinstall, no separate updater. Your private files (`runs/`, `agent-data-source/`, any personal `policy/` draft) are gitignored and untouched by an update; only the platform's own files change.
+
+**Check what's new:** [ROADMAP.md](ROADMAP.md) tracks current status and milestones; `git log --oneline -10` shows the most recent changes directly.
+
 ## Cost — What You Actually Pay
 
 **This platform is free for early adopters.** There is no license fee, no subscription, and no hidden charge today. This is an early-access period — the project may introduce pricing for the platform itself in the future; early adopters get free access now, ahead of any future change. Nothing about this repository requires payment to use it as-is.
