@@ -21,7 +21,7 @@ Status: ✅ Complete
 ---
 
 ## Phase 1 — Agent Design Review
-Status: 🚧 In Progress
+Status: ✅ Complete (2026-07-17; Portfolio Manager descoped per ADR-005)
 
 ### Milestone: Analyst Design Framework
 Status: ✅ Complete
@@ -58,7 +58,12 @@ Status: Not Started
 
 ## Phase 3 — Strategy Framework
 
-Status: Not Started
+Status: 🚧 In Progress
+
+- [x] Strategy definition template (strategies/strategy-template.md)
+- [x] First strategy approved: pmcc-calendar-overlay (2026-07-17)
+- [x] Owner decision: single-strategy universe for now (4 slots are headroom, not backlog)
+- [ ] Portfolio policy (policy/) — paused per ADR-005 (PM descoped)
 
 ---
 
