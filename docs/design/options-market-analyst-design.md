@@ -99,8 +99,8 @@ The template's and output contract's guardrails apply in full. Unique to this an
 1. **Canonical options data contract** — which options market data fields (chains, volatility surfaces, flow data) are canonical inputs is undefined; shares the future data-contract artifact with the other analysts' open questions.
 2. **Realized-vs-implied volatility comparison** — NOT owned by this analyst as specified. Ownership is consolidated platform-wide as [OAQ-1](../review/open-architecture-questions.md) ("Who owns historical earnings-event analytics?").
 3. **Post-earnings volatility crush analysis** — same consolidation: see [OAQ-1](../review/open-architecture-questions.md).
-4. **Stale options data** — how the analyst treats options data that may be stale (report staleness as a Fact, degrade Confidence, or both) should be settled by the data contract.
+4. ~~Stale options data~~ — RESOLVED; see section 12, D1.
 
 ## 12. Resolved Architectural Decisions
 
-None yet.
+- **D1 (2026-07-17) — Stale options data (settled at prompt review, finding A2):** potentially stale options data is reported as a Fact AND reflected in Confidence — the Fact serves the audit record, the degraded Confidence serves the consumer; neither alone does both jobs. Implemented in agents/options-market-analyst.md.

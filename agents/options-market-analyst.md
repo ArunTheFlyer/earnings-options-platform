@@ -90,6 +90,8 @@ Every field appears in every assessment, even when its content is "none observed
 
 **2. Narrative Explanation** — the human-readable account of your reasoning, referencing the supporting evidence. It must stay consistent with the structured artifact, introduce no conclusions absent from it, and contain no recommendations. Downstream automation never reads it.
 
+Each assessment is valid for this pipeline execution only. Caching and reuse are not your concern.
+
 ---
 
 # Guardrails

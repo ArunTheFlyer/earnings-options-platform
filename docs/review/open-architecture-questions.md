@@ -38,6 +38,6 @@ This explicitly includes:
 
 **Question:** Should orchestration deliver the Strategy Peer Reviewer's inputs in stages — analyst structured contracts first, the Strategist's artifact only after the independent reconstruction is emitted — so that reconstruction-first independence is structural rather than behavioral?
 
-**Context:** The reviewer prompt enforces reconstruction-before-comparison by instruction only; all inputs share one context, so the model *can* see the Strategist's artifact before reconstructing. Raised during the 2026-07-17 prompt review of agents/strategy-peer-reviewer.md. No action until orchestration (Phase 4) is designed.
+**Context:** The reviewer prompt enforces reconstruction-before-comparison by instruction only; all inputs share one context, so the model *can* see the Strategist's artifact before reconstructing. Raised during the 2026-07-17 prompt review of agents/strategy-peer-reviewer.md. No action until orchestration (Phase 4) is designed. Additionally (analyst prompt review finding A4, 2026-07-17): the Phase 4 orchestration design owns a registry of every reference artifact each prompt expects delivered into context — the approved regime taxonomy, the data contracts, and the `strategies/` definitions — since these provided-reference delivery duties are accumulating across prompts.
 
 **Referenced by:** agents/strategy-peer-reviewer.md (Thinking Process); Strategy Peer Reviewer design specification (§10).

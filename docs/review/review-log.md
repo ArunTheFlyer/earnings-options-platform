@@ -363,3 +363,23 @@ Status: Completed — three analyst prompts authored against their passed design
 ### Next Actions
 
 - Full 12-dimension reviews of the three analyst prompts, specs as canonical references.
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); fixes by implementing engineer
+Target Files: agents/market-regime-analyst.md, agents/technical-analyst.md, agents/options-market-analyst.md (commit 4ee2fe3; batched full 12-dimension reviews)
+Status: Completed — all three PASS contingent on four minor fixes (applied same session; diff confirmation pending)
+
+### Findings
+
+Minor: A1 — regime prompt's Scope half-enumerated the deferred indicator list (made illustrative); A2 — options prompt settled spec ODQ-4 (stale data) ahead of its spec (spec amended: ODQ-4 resolved as D1, "Fact AND Confidence"); A3 — per-execution lifetime line missing from technical and options prompts (added); A4 — provided-reference delivery duties accumulating without a registry (OAQ-2 context extended: Phase 4 owns the reference-artifact delivery registry).
+Dispositions: all three drafting choices accepted (work-with-what-is-delivered; stale-data "both"; taxonomy as provided reference).
+
+### Decisions Made
+
+- A1-A4 applied in this commit. Dashboard rows for the three analysts remain pending until the reviewer confirms the diff, per their instruction.
+
+### Next Actions
+
+- Reviewer diff confirmation → check the three analyst rows as passed.
