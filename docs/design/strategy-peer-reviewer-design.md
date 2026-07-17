@@ -38,8 +38,9 @@ Per the decision-layer authority table, the reviewer must not:
 
 Per ADR-003, consumed independently:
 
-1. The Strategist's Structured Decision Contract.
+1. The Strategist's Structured Decision Contract — **all outcomes**, including NO TRADE and INSUFFICIENT EVIDENCE (C1 ruling, 2026-07-17).
 2. All upstream analyst Structured Output Contracts (regime, technical, options).
+3. The approved strategy definitions in `strategies/` — a **platform reference artifact** (decision output contract §3, class 4): versioned repository content pinned by commit, required to adjudicate Strategy-selection errors. Not external state; not evidence.
 
 Narrative artifacts are never review inputs. The reviewer receives no external state inputs.
 
@@ -50,7 +51,11 @@ Per ADR-004, the review is a **Structured Decision Contract** (with optional Nar
 - **Decision** — exactly one of: **APPROVED**, **APPROVED WITH OBSERVATIONS**, **REJECTED**.
 - **Defect Categories** (agent-specific field; REJECTED only) — one or more of: Unsupported conclusion, Logical inconsistency, Ignored evidence, Contradictory evidence, Insufficient evidence, Strategy-selection error, Contract violation. **This specification is the canonical owner of the defect category definitions (section 8); decision-layer.md §8 and ADR-003 reference them.**
 - **Observations** (agent-specific field; APPROVED WITH OBSERVATIONS only) — see section 7 for their contractual weight.
-- **Evidence References** — every finding and the verdict itself must reference the specific structured analyst fields and Strategist artifact elements it rests on. Objections cite evidence, not preference.
+- **Evidence References** — every finding and the verdict itself must reference the specific structured analyst fields, Strategist artifact elements, and (for strategy-selection findings) strategy definitions it rests on. Objections cite evidence, not preference.
+
+**Full field set and ordering** (fixed, per decision output contract §2): Decision, Defect Categories, Observations, Decision Rationale, Evidence References, Assumptions, Constraints, Confidence, Status. Defect Categories and Observations are empty except under their respective verdicts; per the analyst-contract convention, empty fields state "none" rather than being omitted.
+
+**Non-trade outcome reviews are audit findings, not gates** (C1 ruling, 2026-07-17): when the reviewed artifact is NO TRADE or INSUFFICIENT EVIDENCE, the candidate's run ends after review regardless of verdict. A REJECTED verdict on a non-trade outcome cannot resurrect the candidate — it documents wrongly-cautious reasoning in the written record. Only APPROVED / APPROVED WITH OBSERVATIONS verdicts on a strategy proposal advance anything to the Portfolio Manager.
 
 ## 7. Observation Semantics (APPROVED WITH OBSERVATIONS)
 
@@ -69,8 +74,10 @@ The contractual weight of observations, so downstream consumers never have to gu
 | Ignored evidence | A material structured evidence element the recommendation fails to address. Includes unaddressed regime environment risks (see section 9). |
 | Contradictory evidence | Evidence conflicts that the Strategist resolved silently instead of surfacing (handoff contract, precedence principle 4). |
 | Insufficient evidence | The evidence cannot support any recommendation, and the Strategist should have returned INSUFFICIENT EVIDENCE. |
-| Strategy-selection error | The comparison across approved strategies was wrong, incomplete, or the selected strategy is not in the approved `strategies/` set. |
-| Contract violation | The Strategist artifact breaches a platform contract (output shape, traceability, narrative-as-evidence, undefined-risk structure, etc.). |
+| Strategy-selection error | The comparison across approved strategies was wrong, incomplete, or the selected strategy is not in the approved `strategies/` set — adjudicated against the versioned strategy definitions (section 5, input 3). |
+| Contract violation | The Strategist artifact breaches a platform contract (output shape, traceability, narrative-as-evidence, or the defined-risk-only rule whose canonical home is decision-layer.md §3). |
+
+*Wrongly-cautious direction:* the taxonomy applies symmetrically. A NO TRADE whose reasoning does not hold is an **Unsupported conclusion** or **Logical inconsistency**; an INSUFFICIENT EVIDENCE returned when the evidence was sufficient is an **Unsupported conclusion** (the insufficiency claim itself lacks support). "Insufficient evidence" as a category names only the opposite failure — recommending despite inadequate evidence.
 
 ## 9. Regime Cautions (position per residual observation 2)
 
@@ -92,7 +99,7 @@ The reviewer may conclude the Strategist reached a correct decision for incorrec
 
 ## 11. Deliverables
 
-One review Structured Decision Contract per Strategist decision artifact, finalized (Status: Final) before hand-off, as part of the pipeline's written record. Consumer: Portfolio Manager (on approval); a REJECTED verdict ends the pipeline for the candidate.
+One review Structured Decision Contract per Strategist decision artifact, finalized (Status: Final) before hand-off, as part of the pipeline's written record. Consumer: Portfolio Manager (on approval of a strategy proposal); otherwise the pipeline ends for the candidate and the verdict enters the written record (audit semantics per section 6).
 
 ## 12. Guardrails
 
@@ -100,7 +107,7 @@ One review Structured Decision Contract per Strategist decision artifact, finali
 - Every objection cites structured evidence — "I would have chosen differently" is not a finding.
 - Verdicts come only from the three-outcome set; defect categories only from the canonical seven.
 - Never consume narratives; never produce evidence; never touch upstream artifacts.
-- NO TRADE and INSUFFICIENT EVIDENCE outcomes are reviewed by the same standard as Strategy outcomes — a wrongly cautious recommendation is as reviewable as a wrongly bold one.
+- NO TRADE and INSUFFICIENT EVIDENCE outcomes are reviewed by the same standard as Strategy outcomes — a wrongly cautious recommendation is as reviewable as a wrongly bold one (C1 ruling; audit semantics per section 6).
 
 ## 13. Open Design Questions
 
@@ -111,3 +118,6 @@ None at this time. (Reviewer defect-category ownership, observation semantics, a
 - **D1 (2026-07-17) — Observation semantics:** Observations are advisory-but-binding-to-acknowledge; the Portfolio Manager must record a disposition per observation (section 7).
 - **D2 (2026-07-17) — Regime cautions:** Unaddressed regime environment risks are Ignored evidence defects; addressed-and-reasoned-past is a reviewable judgment call (section 9). Closes the strategist review's deferred finding 5 on the review side.
 - **D3 (2026-07-17) — Defect category ownership:** This specification canonically owns the defect category definitions; architecture documents reference them.
+- **D4 (2026-07-17) — Non-trade outcomes reviewed, audit-only (owner ruling, review finding C1 Option A):** NO TRADE and INSUFFICIENT EVIDENCE outcomes flow to the reviewer; their reviews are recorded audit findings, not gates — a REJECTED verdict cannot resurrect the candidate. workflow.md steps 5-6 amended accordingly. Rationale: unchallenged judgment drifts; caution gets no safe harbor from scrutiny.
+- **D5 (2026-07-17) — Strategy definitions as platform reference artifact (review finding C2):** `strategies/` definitions are a fourth admissible reference class in the decision output contract (versioned repository content, pinned by commit); both the Strategist and this reviewer use them, closing the shared unstated dependency.
+- **D6 (2026-07-17) — Defined-risk-only promoted to platform level (review finding R2):** the rule's canonical home is decision-layer.md §3; prompts and this specification's Contract-violation category cite it there.

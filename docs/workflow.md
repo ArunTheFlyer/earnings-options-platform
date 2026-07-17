@@ -78,9 +78,9 @@ A rejection or "no trade" conclusion at any stage ends the pipeline for that can
 
 **Inputs:** The regime assessment, technical assessment, and options-market assessment for the candidate.
 
-**Outputs:** A recommendation: either a fully specified strategy proposal (structure, strikes, expiration, rationale, risk profile, and the evidence it rests on) or a reasoned "no trade" conclusion.
+**Outputs:** A recommendation: a fully specified strategy proposal (structure, strikes, expiration, rationale, risk profile, and the evidence it rests on), a reasoned "no trade" conclusion, or an "insufficient evidence" outcome.
 
-**Consumer:** Strategy Peer Reviewer. A "no trade" conclusion ends the pipeline for this candidate.
+**Consumer:** Strategy Peer Reviewer — all outcomes, including NO TRADE and INSUFFICIENT EVIDENCE, are peer-reviewed (per the C1 ruling of 2026-07-17: caution has no safe harbor from scrutiny).
 
 ---
 
@@ -92,7 +92,9 @@ A rejection or "no trade" conclusion at any stage ends the pipeline for that can
 
 **Outputs:** A review verdict — APPROVED or APPROVED WITH OBSERVATIONS (the proposal becomes an approved strategy), or REJECTED with one or more defect categories. Objections must cite evidence, not preference. There is no return-for-revision path.
 
-**Consumer:** Portfolio Manager (on approval); a rejection ends the pipeline for this candidate.
+For NO TRADE and INSUFFICIENT EVIDENCE outcomes, the review is a **recorded audit finding, not a gate**: the candidate's run ends after review regardless of verdict — a REJECTED verdict on a non-trade outcome cannot resurrect the candidate; it exists so wrongly-cautious reasoning is documented and reviewable after the fact.
+
+**Consumer:** Portfolio Manager (on approval of a strategy proposal); otherwise the pipeline ends for this candidate and the review verdict enters the written record.
 
 ---
 

@@ -26,7 +26,8 @@ The current planned components, and only these:
 **Earnings Options Strategist**
 - Synthesizes analyst evidence across the regime, technical, and options assessments.
 - Selects the single best approved strategy from the canonical `strategies/` set.
-- May return exactly one of: **Strategy**, **NO TRADE**, **INSUFFICIENT EVIDENCE**.
+- **Defined-risk structures only** — undefined-risk strategies are prohibited at the platform level; this document is the canonical home of that rule, and agent prompts cite it.
+- May return exactly one of: **Strategy**, **NO TRADE**, **INSUFFICIENT EVIDENCE**. All three outcomes are peer-reviewed (non-trade outcomes on an audit basis; see the [Strategy Peer Reviewer design specification](strategy-peer-reviewer-design.md)).
 
 **Strategy Peer Reviewer**
 - Challenges the strategist's proposal.
@@ -38,6 +39,7 @@ The current planned components, and only these:
 - Evaluates an approved strategy within portfolio context.
 - Owns capital allocation, exposure, concentration, correlation, and portfolio-level constraints.
 - Holds final authority over capital: only it can commit the portfolio to a trade.
+- Must record a disposition for each peer-review observation it receives (accepted risk, mitigated via constraints, or grounds for decline) — the binding-to-acknowledge obligation defined in the [Strategy Peer Reviewer design specification](strategy-peer-reviewer-design.md), §7; the future Portfolio Manager specification must incorporate it.
 
 **Trade Execution Manager**
 - Converts an approved, sized strategy into executable actions.

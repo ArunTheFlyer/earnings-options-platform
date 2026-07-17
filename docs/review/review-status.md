@@ -37,6 +37,7 @@ _Last updated: 2026-07-17_
 - [ ] Analyst Output Contract (docs/contracts/analyst-output-contract.md)
 - [ ] Analyst Handoff Contract (docs/contracts/analyst-handoff-contract.md)
 - [ ] Decision Output Contract (docs/contracts/decision-output-contract.md)
+- [ ] Strategy Peer Reviewer Design Spec (docs/design/strategy-peer-reviewer-design.md) — reviewed 2026-07-17, findings C1-C2/R1-R4 resolved; pending clean re-review
 
 ## Governance
 

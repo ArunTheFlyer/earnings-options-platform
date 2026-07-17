@@ -177,3 +177,34 @@ Governance: F7 missing log entries and stale dashboard. Optional: F8 narrative o
 ### Next Actions
 
 - Reviewer re-verification of F1/F2/F3 diffs, then Strategy Peer Reviewer design specification.
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); dispositions and fixes by implementing engineer
+Target File: docs/design/strategy-peer-reviewer-design.md (commit 665aec8)
+Status: Completed — verdict DOES NOT PASS YET; all findings resolved same day, resubmitted for re-review
+
+### Findings
+
+Critical: C1 spec reviewed non-trade outcomes the workflow never delivered to the reviewer (workflow step 5 ended the pipeline at NO TRADE); C2 reviewer could not adjudicate Strategy-selection error without access to strategies/ definitions.
+Recommended: R1 full field set/ordering not fixed; R2 defined-risk-only rule lived only in a pending prompt; R3 no clean defect category for the wrongly-cautious direction; R4 PM's binding-to-acknowledge obligation had no echo point outside the spec.
+Governance: G1 spec missing from dashboard and log.
+
+### Decisions Made
+
+- Owner ruling (C1): Option A — all Strategist outcomes are peer-reviewed; non-trade reviews are recorded audit findings, not gates (spec D4; workflow.md steps 5-6 amended).
+- C2: strategies/ definitions admitted as "platform reference artifacts" — a fourth reference class in the decision output contract §3, versioned and commit-pinned; added to reviewer inputs (spec D5).
+- R1: field order fixed (Decision, Defect Categories, Observations, Decision Rationale, Evidence References, Assumptions, Constraints, Confidence, Status).
+- R2: defined-risk-only promoted to decision-layer.md §3 as canonical home (spec D6).
+- R3: taxonomy symmetry note added (wrongly-cautious maps to Unsupported conclusion / Logical inconsistency).
+- R4: PM disposition obligation echoed in decision-layer.md §3 Portfolio Manager entry.
+- G1: this entry; spec added to review-status.md Design & Contracts.
+
+### Open Questions
+
+- None new.
+
+### Next Actions
+
+- Reviewer re-review of the amended specification; on pass, Strategy Peer Reviewer prompt authoring can begin.
