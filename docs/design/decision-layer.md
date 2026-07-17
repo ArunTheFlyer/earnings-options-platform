@@ -87,6 +87,50 @@ Per the [analyst handoff contract](../contracts/analyst-handoff-contract.md):
 - Peer reviewers challenge reasoning, not evidence — the evidence record is the analysts' domain; the reviewer tests what the strategist concluded from it.
 - Missing evidence is surfaced, never fabricated — gaps route to explicit outcomes (e.g., INSUFFICIENT EVIDENCE), never to inference.
 
-## 8. Open Architectural Questions
+## 8. Peer Reviewer Input Scope (Adopted Decision)
 
-1. **Peer Reviewer input scope** — Should the Strategy Peer Reviewer consume only the Strategist's output, or both the Strategist's output and all analyst structured contracts independently? (Context, not an answer: workflow.md currently provides the reviewer "the strategist's proposal plus all upstream assessments"; this question must be settled before the Peer Reviewer's design specification is written, and workflow.md aligned to the ruling.)
+Adopted per [ADR-003](../review/adr-003-peer-review-independence.md):
+
+The Strategy Peer Reviewer **SHALL consume BOTH**:
+
+1. The Strategist's Structured Output Contract.
+2. All upstream Analyst Structured Output Contracts.
+
+The Peer Reviewer **SHALL NOT** consume narrative artifacts.
+
+**Rationale:** the Peer Reviewer exists to independently validate the Strategist's reasoning. Reviewing only the Strategist's proposal would make the reviewer dependent upon the Strategist's representation of the evidence. Independent verification requires direct access to the original structured evidence. This preserves reviewer independence.
+
+### Reviewer Evidence Model
+
+Reviewer independence is achieved through independent evaluation of the original structured evidence, rather than reliance on the Strategist's summary of it.
+
+The reviewer:
+
+- Independently reconstructs the reasoning using the analyst structured outputs.
+- Compares its reasoning with the Strategist's structured output.
+- Identifies omissions, contradictions, unsupported conclusions, and logical errors.
+- Never creates new evidence.
+- Never requests new evidence.
+- Never rewrites analyst evidence.
+- May conclude that the Strategist reached a correct decision for incorrect reasons.
+- May conclude that the Strategist reached an incorrect decision despite correctly interpreting individual analyst outputs.
+
+### Reviewer Outputs
+
+The reviewer may return only one of three canonical outcomes:
+
+- **APPROVED**
+- **APPROVED WITH OBSERVATIONS**
+- **REJECTED**
+
+For **REJECTED**, the reviewer must identify one or more of the following categories:
+
+- Unsupported conclusion
+- Logical inconsistency
+- Ignored evidence
+- Contradictory evidence
+- Insufficient evidence
+- Strategy-selection error
+- Contract violation
+
+Remediation workflows, scoring, and voting are deliberately not defined here.

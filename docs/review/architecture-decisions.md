@@ -40,3 +40,12 @@ Recorded as a standalone document: [adr-002-analyst-output-contract.md](adr-002-
 
 - **Status:** Accepted
 - **Summary:** All analyst agents produce two complementary artifacts — a Structured Output Contract (machine-consumable interface) and a Narrative Explanation (human-readable support). Canonical interface: `docs/contracts/analyst-output-contract.md`.
+
+---
+
+## ADR-003: Peer Review Independence
+
+Recorded as a standalone document: [adr-003-peer-review-independence.md](adr-003-peer-review-independence.md).
+
+- **Status:** Accepted
+- **Summary:** The Strategy Peer Reviewer independently evaluates the original analyst Structured Output Contracts in addition to the Strategist's structured output; narrative artifacts are never review inputs. Reviewer outcomes: APPROVED / APPROVED WITH OBSERVATIONS / REJECTED (with defect categories).
