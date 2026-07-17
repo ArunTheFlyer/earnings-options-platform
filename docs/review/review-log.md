@@ -345,3 +345,21 @@ Status: Completed — PASSED. Review finding F6 closed (last open finding from t
 ### Next Actions
 
 - Owner sequencing call on the backlog order.
+
+## Design Session
+
+Date: 2026-07-17
+Reviewer: n/a — authoring session (prompts submitted for review)
+Target Files: agents/market-regime-analyst.md, agents/technical-analyst.md, agents/options-market-analyst.md (authored)
+Status: Completed — three analyst prompts authored against their passed design specifications; submitted for review
+
+### Decisions Made
+
+- Owner sequencing ruling: analyst prompts before strategies/ content and PM/TEM specs.
+- All three prompts implement ADR-002's two deliverables (Structured Output Contract with the spec's exact field order; Narrative Explanation with consistency/no-new-conclusions/no-recommendations rules), the "none observed"-never-omit convention, evidence-strength Confidence (H/M/L), facts/interpretation separation, and observations-only guardrails.
+- Data-contract gaps handled by "work with what is delivered" phrasing (canonical lists deferred per the specs); regime taxonomy referenced as provided, free-form classification prohibited; OAQ-1 boundary stated in both candidate-level analysts (no historical earnings analytics; future dedicated analyst).
+- Stale-data treatment (Options Market Analyst spec ODQ-4, unsettled): prompt directs report-staleness-as-Fact AND reflect-in-Confidence — flagged to reviewer as a drafting choice, not a settled contract.
+
+### Next Actions
+
+- Full 12-dimension reviews of the three analyst prompts, specs as canonical references.
