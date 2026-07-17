@@ -4,6 +4,10 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 
 ## Quick Start
 
+Two Claude platforms can run this pipeline. Pick whichever you already use — both trigger the same analysis and end at the same kind of verdict.
+
+### Option A: Claude Code (clone the repo)
+
 1. Install [Claude Code](https://claude.com/claude-code) and clone this repository.
 2. Open the repo folder in Claude Code.
 3. Start a run — natural language or the packaged skill, your choice:
@@ -16,26 +20,17 @@ A multi-agent AI platform for researching, evaluating, and managing options trad
 
 Trigger examples: [examples/run-trigger-examples.md](examples/run-trigger-examples.md)
 
-> **Not financial advice.** This platform produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local (`runs/` is gitignored).
+### Option B: Claude Cowork (plugin, no clone needed)
 
-## Run in Claude Cowork (Plugin)
+1. Install the plugin: accept [plugin/earnings-options-analysis.plugin](plugin/earnings-options-analysis.plugin) in Cowork, or install it from wherever you saved it. No repo clone required — everything the plugin needs travels inside the file.
+2. Configure once, at the top of the plugin skill's `SKILL.md`: `RUN_RECORDS_FOLDER` (a writable folder for your run records) and, optionally, `MARKET_DATA_CONNECTOR`. If you skip this, the plugin asks before writing and auto-discovers any connected market-data MCP.
+3. Start a run — same trigger phrasing as Claude Code:
+   - `Run the pipeline on <TICKER>. Earnings <date> <AMC|BMO>.`
+   - `/analyze-earnings-trade <TICKER>`
+4. Confirm the earnings date when echoed back; supply a data file if asked (data sourcing is tiered: a connected market-data MCP first, then public web fetch, then it asks you directly — never fabricated).
+5. The run ends at the same kind of verdict — **with one difference:** the plugin packages the five-agent *analysis* slice only (Market Regime → Technical → Options → Strategist → Peer Reviewer). It stops at the reviewer's verdict and your recorded decision; the Portfolio Manager and Trade Execution Manager stages are out of scope for the plugin.
 
-Besides Claude Code, the pipeline is also packaged as a **Claude Cowork plugin** — `earnings-options-analysis` — so you can run it inside the Claude desktop app without the repo present.
-
-**What it packages.** The five-agent *analysis* slice, as-is: Market Regime → Technical → Options → Strategist → Peer Reviewer, ending at the reviewer's verdict and your recorded decision. The Portfolio Manager and Trade Execution Manager stages are intentionally out of scope for the plugin. Everything the skill loads at runtime travels inside the plugin — all five agent prompts, the four contracts, the per-agent design specs, the approved strategy definitions, and the orchestration design — so it installs and runs as one self-contained unit (no clone required).
-
-**Install.** Accept [plugin/earnings-options-analysis.plugin](plugin/earnings-options-analysis.plugin) in Cowork, or install it from wherever you saved it.
-
-**Configure once** (top of the skill's `SKILL.md`):
-
-- `RUN_RECORDS_FOLDER` — a writable folder on your computer where each run's record is saved (not a read-only repo). If unset, the skill asks before writing.
-- `MARKET_DATA_CONNECTOR` — optional preferred market-data connector; if unset, the skill discovers any connected market-data MCP at runtime.
-
-**Data sourcing (tiered).** For every data need (broad-market readings, price history, options chain + IV) the plugin resolves data in order: (1) a market-data connector if one is available, (2) public web fetch (Yahoo Finance) for index levels and price history, (3) if data is still missing or inadequate — most often the options chain / IV — it stops and asks you for a file, naming exactly what it needs. It never fabricates data.
-
-**Trigger it** the same way as in Claude Code: `Run the pipeline on <TICKER>`, `analyze earnings for <TICKER>`, or `/analyze-earnings-trade <TICKER>`.
-
-> The plugin mirrors the analysis pipeline only — it never places a trade or sizes a position. You always make the final call, exactly as in Claude Code.
+> **Not financial advice**, on either platform. This produces peer-reviewed analysis artifacts. All capital decisions are yours, made manually, by design. Your run records stay local — never uploaded.
 
 ## What You Get
 
