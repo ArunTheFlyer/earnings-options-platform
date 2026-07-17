@@ -50,3 +50,5 @@ _Last updated: 2026-07-17_
 ## Strategies (approved)
 
 - [x] pmcc-calendar-overlay (strategies/pmcc-calendar-overlay.md) — owner-authored; reviewed and PASSED 2026-07-17. 1 of maximum 5 slots used (cap: decision-layer.md §3).
+
+_Owner decision (2026-07-17): pmcc-calendar-overlay is deliberately the sole approved strategy for now. The 4 open slots are headroom, not a backlog; the Strategist compares against a universe of one until the owner adds more._
