@@ -27,6 +27,7 @@ The current planned components, and only these:
 - Synthesizes analyst evidence across the regime, technical, and options assessments.
 - Selects the single best approved strategy from the canonical `strategies/` set.
 - **Defined-risk structures only** — undefined-risk strategies are prohibited at the platform level; this document is the canonical home of that rule, and agent prompts cite it.
+- **The approved strategy universe is intentionally small — a maximum of five strategies in `strategies/`.** This document is the canonical home of that cap (S3 ruling, 2026-07-17); strategy additions beyond it require an architectural decision.
 - May return exactly one of: **Strategy**, **NO TRADE**, **INSUFFICIENT EVIDENCE**. All three outcomes are peer-reviewed (non-trade outcomes on an audit basis; see the [Strategy Peer Reviewer design specification](strategy-peer-reviewer-design.md)).
 
 **Strategy Peer Reviewer**

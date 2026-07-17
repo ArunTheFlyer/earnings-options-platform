@@ -22,7 +22,8 @@ For each candidate, produce one Structured Decision Contract whose Decision is e
 ## 4. Explicit Non-Responsibilities
 
 - No raw market data analysis — analyst evidence arrives only as structured contracts, consumed as received, never re-derived (handoff contract).
-- No strategy invention — only strategies defined in `strategies/` may be proposed; **defined-risk structures only** (canonical home: decision-layer.md §3).
+- No strategy invention — only strategies defined in `strategies/` may be proposed (a universe capped at five; canonical home of the cap: decision-layer.md §3); **defined-risk structures only** (canonical home: decision-layer.md §3).
+- No timing-eligibility checks — the ~10-days-before-earnings entry rule is a Watchlist property (workflow.md step 1, S1 ruling); the strategist neither restates nor re-checks it.
 - No position sizing, capital allocation, or portfolio judgment — the Portfolio Manager's domain.
 - No execution decisions.
 - No self-approval — every outcome, including NO TRADE and INSUFFICIENT EVIDENCE, goes to the Strategy Peer Reviewer (C1 ruling; non-trade outcomes on an audit basis).
@@ -41,8 +42,8 @@ The strategist receives no external state inputs.
 Per ADR-004, one **Structured Decision Contract** per candidate (with optional Narrative Explanation). Full field set and ordering, fixed:
 
 1. **Decision** — Strategy, NO TRADE, or INSUFFICIENT EVIDENCE.
-2. **Strategy Specification** (agent-specific; Decision = Strategy only, otherwise "none") — strategy name (as defined in `strategies/`), structure, strikes, expiration, entry conditions, exit plan, key risks.
-3. **Strategy Comparison** (agent-specific) — for each approved strategy: evaluated verdict and the one-line reason it was or was not selected. For non-trade Decisions, records why no strategy qualified.
+2. **Strategy Specification** (agent-specific; Decision = Strategy only, otherwise "none") — strategy name (as defined in `strategies/`), structure, strikes, expiration, risk/reward profile (maximum loss, payoff characteristics), entry conditions, exit plan, key risks.
+3. **Strategy Comparison** (agent-specific) — for each approved strategy, one line: the verdict (selected / not selected / not viable) and the primary section-8 criterion that decided it. No per-criterion scoring — fuller comparative reasoning belongs in Decision Rationale. For non-trade Decisions, records why no strategy qualified.
 4. **Missing Evidence** (agent-specific; Decision = INSUFFICIENT EVIDENCE only, otherwise "none") — which upstream inputs are missing or inadequate, from which analyst, why each is required, and what could and could not be concluded.
 5. **Decision Rationale** — the reasoning from structured evidence to Decision, including engagement with regime environment risks and any evidence contradictions surfaced.
 6. **Evidence References** — every conclusion cites the structured analyst fields and strategy definitions it rests on.
@@ -70,7 +71,7 @@ Always in this order (evidence before opinion; strategy-agnostic until compariso
 6. Rank internally; select the single best — or conclude NO TRADE (no strategy offers an attractive risk-adjusted opportunity) or INSUFFICIENT EVIDENCE (the evidence cannot support any conclusion).
 7. Produce the Structured Decision Contract with full traceability.
 
-Never begin with a directional opinion. Never begin with a preferred strategy. Success criteria for comparison: risk-adjusted return first, then degree of mispricing/edge, then probability of profit — capital efficiency is not a criterion at this stage.
+Never begin with a directional opinion. Never begin with a preferred strategy. Strategies are evaluated **primarily** by (1) risk-adjusted return, (2) degree of mispricing/edge, (3) probability of profit — a weighted primacy, not a strict lexicographic ordering: a lower-numbered criterion carries more weight, but a decisive advantage on a later criterion can outweigh a marginal one on an earlier criterion, and the Decision Rationale must justify any such trade-off. Capital efficiency is not a criterion at this stage.
 
 ## 9. Deliverables
 
@@ -95,11 +96,18 @@ The existing prompt must be realigned to this specification. The known deltas:
 3. "Historical earnings reactions" and "historical suitability" references conditioned on the future Earnings History Analyst per section 5, input 3 — no expectation of historical earnings behavior from the technical assessment.
 4. Regime evidence promoted from supporting context to must-engage material (section 3), superseding the old prompt's Information Priority placement and closing deferred strategist finding 5 on the strategist side.
 5. The peer-review sentence updated: all outcomes are reviewed, including non-trade outcomes on an audit basis.
+6. The "~ten calendar days before earnings" Scope sentence removed — timing eligibility is a Watchlist entry property (workflow.md step 1), not strategist scope (S1 ruling).
+7. The "maximum five strategies" sentence updated to cite its canonical home (decision-layer.md §3) rather than asserting the cap itself (S3 ruling).
+8. The Recommendation's risk/reward content restored as the Strategy Specification's risk/reward profile field (S2).
 
 ## 12. Open Design Questions
 
-1. **Strategy Comparison field depth** — section 6 field 3 requires a per-strategy verdict line; whether a fuller comparison record (per-criterion scoring against section 8's success criteria) belongs in the artifact or only in the rationale is a contract-weight question for the prompt review to settle.
+None. (The former question on Strategy Comparison field depth was settled at review — see D2.)
 
 ## 13. Resolved Architectural Decisions
 
 - **D1 (2026-07-17) — OAQ-1 incorporation (owner ruling):** historical earnings-event analytics belong to a future dedicated Earnings History Analyst; this specification consumes its contract when present and proceeds without it otherwise (section 5, input 3).
+- **D2 (2026-07-17) — Strategy Comparison depth (review ruling on ODQ-1):** field 3 carries a per-strategy verdict line plus the primary deciding criterion; no per-criterion scoring in the artifact (pseudo-quantification deliberately avoided); fuller comparative reasoning lives in Decision Rationale.
+- **D3 (2026-07-17) — Timing scope relocated (owner ruling, review finding S1, option b):** the ~10-days-before-earnings constraint is a Watchlist pipeline-entry property (workflow.md step 1); removed from the strategist. Closes deferred strategist finding 7.
+- **D4 (2026-07-17) — Strategy-universe cap retained at platform level (owner ruling, review finding S3):** maximum five strategies; canonical home decision-layer.md §3.
+- **D5 (2026-07-17) — Success criteria semantics (review finding S4):** weighted primacy, not lexicographic ordering; trade-offs across criteria must be justified in Decision Rationale.

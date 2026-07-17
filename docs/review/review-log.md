@@ -279,3 +279,33 @@ Status: Completed — PASSED (P1/P2/P3 confirmed resolved; scope confirmed)
 ### Next Actions
 
 - Owner sequencing call: Earnings Options Strategist design specification (from which the F6 prompt realignment falls out; OAQ-1 should be put to the owner before/during) vs. analyst prompt authoring (market regime, technical, options — specs long since passed).
+
+## Review Session
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session); rulings by project owner; fixes by implementing engineer
+Target File: docs/design/earnings-options-strategist-design.md (commit 0366f27)
+Status: Completed — verdict DOES NOT PASS YET; all findings resolved same day, resubmitted
+
+### Findings
+
+Critical: S1 — the prompt's "~10 calendar days before earnings" scope constraint silently lost (no home in the spec; previously deferred strategist finding 7).
+Consistency: S2 — Strategy Specification omitted the risk/reward profile promised by workflow step 5; S3 — the maximum-five-strategies cap homeless; S4 — success criteria drifted from weighted primacy ("primarily") to implied lexicographic ordering.
+ODQ-1 settled by reviewer: per-strategy verdict + primary deciding criterion; no per-criterion scoring.
+Dispositions: all three flagged design choices accepted (comparison field, Missing Evidence field, section 11 realignment deltas — the latter to be marked historical, not deleted, once implemented).
+
+### Decisions Made
+
+- Owner ruling S1: option (b) — timing eligibility is a Watchlist pipeline-entry property; recorded in workflow.md step 1; removed from strategist scope (spec D3; closes deferred strategist finding 7).
+- Owner ruling S3: cap retained; canonical home decision-layer.md §3 (spec D4).
+- S2: risk/reward profile (maximum loss, payoff characteristics) added to Strategy Specification.
+- S4: weighted-primacy semantics stated explicitly, trade-offs justified in Decision Rationale (spec D5).
+- ODQ-1 → spec D2; section 12 cleared.
+
+### Open Questions
+
+- None new.
+
+### Next Actions
+
+- Reviewer verification of the S1-S4/D2 diffs; on pass, F6 prompt realignment begins.

@@ -28,6 +28,8 @@ A rejection or non-trade outcome ends the pipeline for that candidate — non-tr
 
 **Purpose:** Define the universe of candidate symbols with upcoming earnings events that are worth analyzing.
 
+**Timing eligibility:** candidates enter the pipeline approximately ten calendar days before their earnings announcement. This is a property of pipeline entry, owned here — no downstream stage restates or re-checks it (S1 ruling, 2026-07-17; formerly the strategist prompt's scope constraint).
+
 **Inputs:** The trader's curated list of symbols and their scheduled earnings dates.
 
 **Outputs:** The candidate symbol(s) and earnings event(s) to be analyzed in this run.
