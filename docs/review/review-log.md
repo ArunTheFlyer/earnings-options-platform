@@ -262,3 +262,20 @@ Observation: reviewer independence is behavioral, not structural — staged inpu
 ### Next Actions
 
 - Reviewer confirmation of P1 diff; on confirmation the prompt passes and review-status.md is updated.
+
+## Review Session (addendum)
+
+Date: 2026-07-17
+Reviewer: Independent Peer Reviewer (Claude, separate session)
+Target File: agents/strategy-peer-reviewer.md (commit 7ead94f, P1 confirmation)
+Status: Completed — PASSED (P1/P2/P3 confirmed resolved; scope confirmed)
+
+### Decisions Made
+
+- agents/strategy-peer-reviewer.md is the platform's first fully reviewed decision-agent prompt, and the first agent to complete the full intended path end-to-end: architecture → contracts → design specification (reviewed, passed) → prompt (authored against the spec, reviewed, passed) — the ADR-001 architecture-first bet demonstrated working.
+- review-status.md updated: Strategy Peer Reviewer checked as PASSED 2026-07-17.
+- Reviewer's Phase 4 request noted for the orchestration design: the orchestrator's duty to deliver strategies/ content into the reviewer's context must become an explicit OAQ-2 requirement line at that time.
+
+### Next Actions
+
+- Owner sequencing call: Earnings Options Strategist design specification (from which the F6 prompt realignment falls out; OAQ-1 should be put to the owner before/during) vs. analyst prompt authoring (market regime, technical, options — specs long since passed).
