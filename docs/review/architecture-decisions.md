@@ -58,3 +58,12 @@ Recorded as a standalone document: [adr-004-decision-output-contract.md](adr-004
 
 - **Status:** Accepted
 - **Summary:** All decision agents produce a canonical Structured Decision Contract (Decision, Decision Rationale, Evidence References, Assumptions, Constraints, Confidence, Status) plus an optional human-facing Narrative Explanation. Canonical interface: `docs/contracts/decision-output-contract.md`.
+
+---
+
+## ADR-005: Portfolio Manager Descoped
+
+Recorded as a standalone document: [adr-005-portfolio-manager-descoped.md](adr-005-portfolio-manager-descoped.md).
+
+- **Status:** Accepted
+- **Summary:** The Portfolio Manager agent is descoped for now; the owner performs portfolio decisions (accept/decline, sizing) manually between peer review and execution. The passed PM spec remains dormant as the blueprint if built later; policy/ authoring is paused.

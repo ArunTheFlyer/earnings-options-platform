@@ -16,7 +16,7 @@ _Last updated: 2026-07-17_
 
 ## Decision Layer
 
-- [ ] Portfolio Manager
+- [x] Portfolio Manager — DESCOPED per ADR-005 (2026-07-17): human-executed; passed design spec dormant; prompt intentionally not authored
 - [x] Trade Execution Manager — prompt authored against passed design spec; full 12-dimension review PASSED 2026-07-17
 
 ## Documentation

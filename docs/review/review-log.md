@@ -520,3 +520,15 @@ F-1 capital efficiency as objective/criteria conflicted with the Strategist cont
 ### Next Actions
 
 - policy/portfolio-policy.md (owner-authored) — the sole remaining gate on the PM prompt, end-to-end capability, and full Phase 1 closure. Strategy universe has 4 open slots.
+
+## Design Session
+
+Date: 2026-07-17
+Reviewer: n/a — owner architectural ruling, recorded
+Target: Portfolio Manager scope
+Status: Completed
+
+### Decisions Made
+
+- ADR-005: Portfolio Manager agent descoped; the owner performs portfolio decisions manually between peer review and execution. Passed PM spec remains dormant as the future blueprint. policy/portfolio-policy.md authoring paused (no longer gates anything). Revisit trigger: owner sees a need.
+- Phase 1 agent implementation is complete for the in-scope set: analysts → Strategist → Peer Reviewer automated; portfolio stage human; TEM available per-trade at the owner's choice.

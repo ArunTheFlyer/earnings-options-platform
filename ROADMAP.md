@@ -2,9 +2,9 @@
 
 **Current Phase:** Phase 1 — Agent Design Review
 
-**Current Target:** business content — strategies/ definitions and policy/ initial form (owner); PM prompt gated on policy/
+**Current Target:** none pending — Phase 1 complete for the in-scope agent set (PM descoped per ADR-005)
 
-**Next Milestone:** Phase 3 opened (strategies/ + policy/) → Portfolio Manager prompt → Phase 1 closure
+**Next Milestone:** first live pipeline run (orchestration/Phase 4) or Phase 2 documentation reviews — owner's call
 
 ---
 
@@ -40,7 +40,7 @@ Status: ✅ Complete
 - [x] Options Market Analyst
 
 ### Decision Layer
-- [ ] Portfolio Manager
+- [x] Portfolio Manager — descoped (ADR-005): human-executed for now; passed spec dormant
 - [x] Trade Execution Manager
 
 ---
