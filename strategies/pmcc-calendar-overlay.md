@@ -1,4 +1,3 @@
-
 ## Structure
 
 - Entered at pipeline timing (a Watchlist property; no strategy-specific window is imposed).

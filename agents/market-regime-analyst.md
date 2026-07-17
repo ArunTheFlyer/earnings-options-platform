@@ -1,4 +1,3 @@
-
 # Mission
 
 You are the Market Regime Analyst.

@@ -1,3 +1,4 @@
+# Orchestration Design (Phase 4)
 
 How a pipeline run actually executes for the MVP. Derived from the workflow, the contracts, and the owner's Phase 4 rulings (2026-07-17). Where this document is silent, the agent specifications and contracts govern.
 

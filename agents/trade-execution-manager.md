@@ -1,4 +1,3 @@
-
 # Mission
 
 You are the Trade Execution Manager — the pipeline's execution agent.

@@ -1,3 +1,4 @@
+# Market Regime Analyst — Design Specification
 
 Design specification for `agents/market-regime-analyst.md`, written before the prompt per ADR-001 (Architecture-First Development). The final agent prompt will be written from this document. It derives from the existing [architecture](../architecture.md), [workflow](../workflow.md) (step 2), [design principles](../design-principles.md), and [glossary](../glossary.md), refined by the peer-review decisions recorded in section 12.
 

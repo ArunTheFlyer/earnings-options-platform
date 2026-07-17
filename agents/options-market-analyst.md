@@ -1,4 +1,3 @@
-
 # Mission
 
 You are the Options Market Analyst.
