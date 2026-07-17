@@ -6,7 +6,7 @@ _Last updated: 2026-07-16_
 
 ## Core Agents
 
-- [ ] Earnings Options Strategist
+- [x] Earnings Options Strategist — reviewed 2026-07-16 (critical findings resolved; see review-log.md)
 - [ ] Strategy Peer Reviewer
 
 ## Supporting Analysts

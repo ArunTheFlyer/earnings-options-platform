@@ -2,9 +2,9 @@
 
 **Current Phase:** Phase 1 — Agent Design Review
 
-**Current Target:** agents/earnings-options-strategist.md
+**Current Target:** agents/strategy-peer-reviewer.md
 
-**Next Milestone:** Earnings Options Strategist Reviewed
+**Next Milestone:** Strategy Peer Reviewer Reviewed
 
 ---
 
@@ -24,7 +24,7 @@ Status: ✅ Complete
 Status: 🚧 In Progress
 
 ### Core Decision Agents
-- [ ] Earnings Options Strategist
+- [x] Earnings Options Strategist
 - [ ] Strategy Peer Reviewer
 
 ### Supporting Analysts

@@ -34,7 +34,7 @@ The engineering journal for review sessions. Every review session appends one en
 Date: 2026-07-16
 Reviewer: Claude (full 12-dimension checklist per review-plan.md)
 Target File: agents/earnings-options-strategist.md
-Status: In Progress
+Status: Completed (critical findings resolved; recommended/optional findings deferred)
 
 ### Findings
 
@@ -60,15 +60,15 @@ Strengths: anti-goals in Mission, evidence-first thinking order, NO TRADE as fir
 
 ### Decisions
 
-Pending — see Open Questions.
+- Findings accepted by project owner; critical findings implemented, recommended/optional explicitly deferred.
+- Q1 resolved: the strategist outputs exactly ONE recommended strategy (prompt amended; workflow.md unchanged). Output contract now includes strategy name, structure, strikes, expiration, rationale, risk/reward, entry conditions, exit plan, key risks, assumptions.
+- Q2 resolved: the strategist consumes only the three upstream analyst assessments; no raw data analysis, no mid-pipeline data requests. Missing evidence produces a structured INSUFFICIENT EVIDENCE outcome.
+- `strategies/` directory established as the canonical and only source of approved strategies; no strategy names hardcoded in the prompt.
 
 ### Open Questions
 
-1. Single proposal (amend prompt) vs. ranked top-3 output (amend workflow.md and downstream contracts)?
-2. Should the strategist consume only analyst assessments, or will a real mid-pipeline data-request mechanism exist?
+- Deferred findings 5-7 (regime cautions binding, peer-review return handling, ~10-day scope in workflow.md) and 8-9 (heading hierarchy, confidence wording) remain open for a future session.
 
 ### Next Actions
 
-- Resolve open questions with project owner.
-- Apply agreed fixes to agents/earnings-options-strategist.md (and workflow.md if Q1 resolves that way).
-- Re-verify against checklist; on pass, update review-status.md and ROADMAP.md.
+- Next review per Phase 1 order: agents/strategy-peer-reviewer.md.
