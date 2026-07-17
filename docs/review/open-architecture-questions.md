@@ -6,7 +6,11 @@ Platform-level architectural questions that span more than one agent or document
 
 ## OAQ-1: Who owns historical earnings-event analytics?
 
-**Status:** Open
+**Status:** RESOLVED 2026-07-17 (owner ruling) — a future dedicated analyst
+
+**Resolution:** Historical earnings-event analytics (price reactions, realized-vs-implied volatility comparisons, post-earnings volatility crush, and related analytics) will be owned by a future dedicated **Earnings History Analyst**, to be specified later from the analyst template. No existing analyst absorbs the capability. Until that analyst exists, consumers are specified to tolerate its absence: the Earnings Options Strategist design specification consumes its output when present and proceeds without it otherwise, and the Analyst Ownership Matrix gains the capability row only when the analyst is specified. The strategist prompt's current "historical earnings behavior where provided" expectation is realigned as part of the Strategist specification work (review finding F6).
+
+**Original status:** Open
 
 **Question:** Which component owns analytics derived from a candidate's historical earnings events?
 
