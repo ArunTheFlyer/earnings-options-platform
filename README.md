@@ -42,6 +42,28 @@ Every run ends with one of three outcomes:
 
 Along the way, it may pause once to confirm the earnings date, or ask you to drop in a data file if something couldn't be found automatically — just answer and it continues.
 
+**Sample trade result** (illustrative only — not a real run):
+
+```
+Ticker: TSLA           Earnings: Jul-23 AMC
+Strategy: PMCC + Calendar Overlay
+
+Structure:
+  Long  1x  Jan-27 $180 Call   (Delta 0.85)   — LEAPS anchor
+  Short 1x  Jul-31 $260 Call   (Delta 0.25)   — sold against it
+  Long  1x  Jul-31 $280 Call   — same-strike calendar overlay
+
+Cost:            $3,120/contract
+Max loss:        $3,120/contract (defined-risk)
+Entry condition: IV Rank 68 (elevated), regime: Constructive but Choppy
+Exit plan:       Close at +20% profit or -70% loss, or by Jul-28 (5 trading
+                 days after the earnings event) — whichever comes first
+
+Reviewer verdict: ✅ Approved with observations
+  Observation: short-strike delta is at the upper edge of the 0.20-0.30 band —
+  worth a glance if IV compresses faster than expected post-earnings.
+```
+
 **You always make the final call.** The pipeline never places a trade, sizes a position, or touches your money — it hands you a fully reasoned recommendation (or an honest "no"), and the decision is yours.
 
 ## Your Decision
