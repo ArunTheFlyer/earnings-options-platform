@@ -29,13 +29,21 @@ Then **you** decide: trade or not, and how big. The pipeline never touches your 
 
 ## 3. Start a run
 
-Open the repository folder in Claude Code and type a run trigger:
+You have two equivalent ways to start a run — pick whichever you prefer:
+
+**Option A — just ask (natural language).** Your Claude Code session auto-loads this repo's `CLAUDE.md`, which teaches it the full orchestration procedure. Type a run trigger:
 
 ```
 Run the pipeline on AVGO. Earnings Jul-29 after close.
 ```
 
-Ticker is required; everything else is optional (see `examples/run-trigger-examples.md` for all forms). If you omit the earnings date, the orchestrator fetches it.
+**Option B — the packaged skill.** Invoke the rehearsed workflow directly:
+
+```
+/run-pipeline AVGO earnings Jul-29 AMC
+```
+
+Both follow the same governed procedure (`docs/design/orchestration-design.md`); the skill is simply the more scripted path. Ticker is required; everything else is optional (see `examples/run-trigger-examples.md` for all forms). If you omit the earnings date, the orchestrator fetches it.
 
 **The orchestrator always echoes the earnings date and session (before/after market) back to you and waits for your confirmation** — check it; a wrong date corrupts the whole run.
 
