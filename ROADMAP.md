@@ -2,9 +2,9 @@
 
 **Current Phase:** Phase 1 — Agent Design Review
 
-**Current Target:** owner sequencing pending (strategies/ content, PM/TEM specs, or Phase 2 documentation reviews)
+**Current Target:** business content — strategies/ definitions and policy/ initial form (owner); PM prompt gated on policy/
 
-**Next Milestone:** Decision layer completed (Portfolio Manager + Trade Execution Manager) or Phase 3 opened (strategies/)
+**Next Milestone:** Phase 3 opened (strategies/ + policy/) → Portfolio Manager prompt → Phase 1 closure
 
 ---
 
@@ -41,7 +41,7 @@ Status: ✅ Complete
 
 ### Decision Layer
 - [ ] Portfolio Manager
-- [ ] Trade Execution Manager
+- [x] Trade Execution Manager
 
 ---
 
