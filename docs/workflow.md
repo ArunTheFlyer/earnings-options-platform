@@ -32,19 +32,19 @@ A rejection or "no trade" conclusion at any stage ends the pipeline for that can
 
 **Outputs:** The candidate symbol(s) and earnings event(s) to be analyzed in this run.
 
-**Consumer:** Market Regime Analyst (and all downstream stages, which analyze the same candidates).
+**Consumer:** Technical Analyst — the first consumer of the watchlist — and all subsequent stages, which analyze the same candidates. (The Market Regime Analyst is symbol-agnostic and does not consume the watchlist.)
 
 ---
 
 ## 2. Market Regime Analyst
 
-**Purpose:** Characterize the broad market environment so that all downstream analysis is grounded in current conditions rather than assumptions.
+**Purpose:** Identify and explain the current market regime so that all downstream analysis is grounded in current conditions rather than assumptions.
 
-**Inputs:** The watchlist candidates; broad market data (indices, volatility environment, prevailing trend and sentiment conditions).
+**Inputs:** Market-wide information only (broad market data; the canonical indicator list will be defined in a separate data contract). This agent is completely symbol-agnostic and receives no watchlist or candidate information.
 
-**Outputs:** A regime assessment — what kind of market this is, how favorable it is for risk-taking, and any environment-level cautions that downstream stages must respect.
+**Outputs:** A regime assessment — observations only: the regime classification, the facts and interpretation behind it, and environment-level risks present in the current environment. It contains no instructions to downstream agents.
 
-**Consumer:** Technical Analyst, and every stage after it, which must interpret their own findings in light of the regime.
+**Consumer:** Technical Analyst, and every stage after it. Consumers are responsible for interpreting the regime observations and acting on them within their own decisions.
 
 ---
 
@@ -52,7 +52,7 @@ A rejection or "no trade" conclusion at any stage ends the pipeline for that can
 
 **Purpose:** Interpret the candidate's price action so the strategist knows where the stock stands and which levels matter.
 
-**Inputs:** The candidate symbol; its price history and chart data; the regime assessment.
+**Inputs:** The watchlist candidates (this stage is the watchlist's first consumer); the candidate's price history and chart data; the regime assessment.
 
 **Outputs:** A technical assessment — trend, key support and resistance levels, notable patterns, and how the stock is positioned heading into earnings. Evidence only; no trade recommendation.
 

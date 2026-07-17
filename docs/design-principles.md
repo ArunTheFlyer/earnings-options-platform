@@ -34,7 +34,16 @@ No strategy reaches capital without surviving an independent challenge. The revi
 
 Agents are designed as durable components, not one-off prompts. Their contracts (inputs consumed, outputs produced) are explicit, so they can be recombined into future pipelines. Improvements to an agent benefit every pipeline that uses it.
 
-## 9. Maintainability over Complexity
+## 9. Facts Separated from Interpretation
+
+Every analyst artifact must separate its content into two distinct layers:
+
+- **Facts** — objective observations, stated without interpretation.
+- **Interpretation** — the analyst's conclusions drawn from those facts.
+
+The two are never mixed, so downstream agents can always distinguish raw evidence from analytical judgment. **Recommendations are prohibited in analyst artifacts** — an analyst that suggests an action has crossed into decision-making (principle 2). This is a platform-wide rule for every current and future analyst, not a property of any single agent.
+
+## 10. Maintainability over Complexity
 
 Prefer the simpler design at every decision point. A shorter prompt that a contributor can hold in their head beats a longer one that covers marginally more cases. Complexity must buy demonstrable value; when in doubt, leave it out — it can be added later when the need is proven.
 

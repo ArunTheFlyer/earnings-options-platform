@@ -39,13 +39,13 @@ As an analyst-tier agent, the Market Regime Analyst has no decision authority. I
 
 - Broad market data. Specific market indicators are deliberately not enumerated here: the canonical input list will be defined separately in a future data contract.
 
-The Market Regime Analyst is completely symbol-agnostic. The watchlist is NOT an input to this agent. (Note: workflow.md step 2 currently lists the watchlist as an input; the workflow document requires a corresponding amendment — see section 11.)
+The Market Regime Analyst is completely symbol-agnostic. The watchlist is NOT an input to this agent; per workflow.md, the Technical Analyst is the watchlist's first consumer.
 
 ## 6. Outputs
 
 One regime assessment per pipeline execution, with a stable output contract. The assessment always contains exactly these sections, in this order:
 
-1. **Regime Classification** — the current market regime, drawn from the fixed approved regime taxonomy.
+1. **Regime Classification** — the current market regime. The regime classification must come from the project's approved taxonomy. The taxonomy is maintained separately from this design specification.
 2. **Facts** — objective observations only, stated without interpretation, so downstream agents can distinguish raw evidence from analytical conclusions.
 3. **Evidence Summary** — the analyst's interpretation: how the facts support the classification.
 4. **Supporting Indicators** — the specific indicators observed and what each shows.
@@ -90,9 +90,8 @@ One written artifact per pipeline execution: the regime assessment structured pe
 
 ## 11. Open Design Questions
 
-1. **Regime taxonomy contents** — the taxonomy is decided to be fixed and approved (section 12, D1), but the actual set of named regimes is not yet defined. It must be defined and approved before the agent prompt is written.
+1. **Regime taxonomy** — the regime classification must come from the project's approved taxonomy. The taxonomy is a future domain artifact, maintained separately from this design specification; its absence does not block prompt authoring.
 2. **Data contract** — the canonical list of market indicators (indices, volatility measures, sentiment indicators) is deferred to a future data contract (section 12, D6). That contract does not yet exist.
-3. **Workflow amendment** — workflow.md step 2 still lists the watchlist as an input to this agent, which now contradicts D4. The workflow document (and architecture.md's "must respect" wording, per D3) requires amendment in a separate change.
 
 ## 12. Resolved Design Decisions (Peer Review, 2026-07-16)
 

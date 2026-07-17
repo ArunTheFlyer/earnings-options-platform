@@ -17,9 +17,11 @@ This platform takes the opposite approach: **many small agents, each doing one j
 Agents fall into three tiers:
 
 **Analysts** — produce evidence, not opinions about trades.
-- *Market Regime Analyst*: characterizes the broad market environment in which any trade would live.
+- *Market Regime Analyst*: identifies and explains the current market regime; symbol-agnostic.
 - *Technical Analyst*: interprets price action, trend, and levels for the candidate symbol.
 - *Options Market Analyst*: assesses how the options are priced — implied volatility, expected move, and the cost of expressing a view.
+
+Analyst outputs are **observational**: statements of what is, with facts separated from interpretation, and never instructions to any other agent. Responsibility for interpreting those observations and acting on them rests entirely with the downstream decision-making agents that consume them.
 
 **Strategist and Reviewer** — turn evidence into a challenged proposal.
 - *Earnings Options Strategist*: designs a trade structure that fits the assembled evidence, or concludes that no trade is warranted.
