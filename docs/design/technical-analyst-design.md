@@ -42,15 +42,14 @@ Per workflow.md step 3:
 One technical assessment per candidate per pipeline execution, with a stable output contract. The assessment always contains exactly these sections, in this order (objective observations before analytical interpretation):
 
 1. **Facts** — objective observations only (prices, levels, volumes, dated events), stated without interpretation.
-2. **Trend Assessment** — the prevailing trend and its strength.
-3. **Interpretation** — the analyst's conclusions drawn from the facts: what the technical picture shows.
-4. **Key Levels** — support and resistance levels relevant to the earnings event.
-5. **Notable Patterns** — price or volume patterns observed, and what each shows.
-6. **Earnings Context** — the candidate's current price structure heading into the event.
-7. **Regime Context** — how the current regime assessment bears on the technical picture, as observation.
-8. **Assumptions** — explicitly labeled, per the template.
-9. **Confidence** — High / Medium / Low, per the template.
-10. **Executive Summary** — a concise synthesis for downstream readers.
+2. **Trend Assessment** — the Technical Analyst's primary interpretation: the explicit classification of the current technical state and all analytical conclusions drawn from the facts. This section fulfills the template's required Interpretation layer, named for this domain per template section 6; there is no separate Interpretation section, and analytical conclusions appear nowhere else.
+3. **Key Levels** — support and resistance levels relevant to the earnings event.
+4. **Notable Patterns** — price or volume patterns observed, and what each shows.
+5. **Earnings Context** — the candidate's current price structure heading into the event.
+6. **Regime Context** — how the current regime assessment bears on the technical picture, as observation.
+7. **Assumptions** — explicitly labeled, per the template.
+8. **Confidence** — High / Medium / Low, per the template.
+9. **Executive Summary** — a concise synthesis for downstream readers.
 
 Assessment lifetime and contract rigidity follow the template (one pipeline execution; no omitted or softened sections).
 
@@ -68,7 +67,7 @@ The template's four-step analytical spine applies, specialized to this domain:
 1. Observe the candidate's price history and chart data; record the objective facts.
 2. Identify the trend, levels, patterns, and current price structure the facts indicate.
 3. Test those conclusions against contradictory evidence (e.g., conflicting timeframes, weakening volume, level violations).
-4. Report the conclusions, facts, interpretation, and the confidence the evidence supports — never more.
+4. Report the facts, the Trend Assessment (the analyst's interpretation), and the confidence the evidence supports — never more.
 
 ## 9. Deliverables
 
@@ -88,6 +87,7 @@ The template's guardrails apply in full. Unique to this analyst:
 2. **Historical earnings reaction analysis** — a future architectural capability whose ownership is intentionally undecided. It is NOT part of the Technical Analyst's responsibility. Note: the Earnings Options Strategist's prompt currently expects historical earnings behavior from the technical assessment ("historical earnings behavior where provided") — that expectation will need realignment once ownership is decided.
 3. **Multi-candidate handling** — one assessment per candidate is specified here; whether candidates are processed in one run sequentially or as parallel pipeline branches is an orchestration question (Phase 4) that does not change this contract.
 4. **Relative strength** — the strategist's prompt references relative strength as technical evidence; whether it is a required element of the Trend Assessment or an optional observation should be settled by the data contract.
+5. **Structured vs. narrative outputs (platform-wide)** — Should all analyst outputs be split into: (a) a structured machine-consumable contract, and (b) a human-readable narrative explanation? The current analyst output contracts are becoming increasingly narrative. This question is deliberately unanswered here; it is a platform-wide architectural question that should be resolved before additional analyst specifications are created.
 
 ## 12. Resolved Architectural Decisions
 
